@@ -1,10 +1,10 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { P as Phone, a as PlugZap, A as ArrowRight, S as ShieldCheck, Z as Zap, W as Wrench, B as Battery, b as Sun, C as ChevronRight, L as Lightbulb, c as Plug, F as Fan, T as Tv, d as ChevronLeft, X, e as Clock, U as Users, f as Award, H as Heart, g as Star, Q as Quote, M as MapPinned, h as Mail, i as MapPin, j as CircleCheck } from "../_libs/lucide-react.mjs";
-const logo = "/assets/logo-aHZpHL0g.png";
+const logo = "/assets/logo2-Cb2wBZ52.png";
 const heroEv = "/assets/hero-ev-Da36mqbP.jpg";
 const solarImg = "/assets/solar-VqQWAgbl.jpg";
 const batteryImg = "/assets/battery-DHIgjDD6.jpg";
-const aboutUsImg = "/assets/about-us-BJklpv6i.png";
+const aboutUsImg = "/assets/about-uss-CzqVUXJB.png";
 const w1 = "/assets/work-1-DoPI9jRo.jpeg";
 const w2 = "/assets/work-2-DWwQXvlP.jpeg";
 const w3 = "/assets/work-3-CFWwwHQL.jpeg";
@@ -32,7 +32,7 @@ const w24 = "/assets/work-24-mtyoDnAE.jpeg";
 const w25 = "/assets/work-25-B_dxEdEa.jpeg";
 const PHONE_DISPLAY = "+1 (832) 868-2964";
 const PHONE_TEL = "+18328682964";
-const EMAIL = "electricalandrenewableservices@gmail.com";
+const EMAIL = "info@electricalrenewableservices.org";
 const ADDRESS = "Baytown TX, 77523, United States";
 function Home() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen overflow-x-hidden bg-background text-foreground", children: [
@@ -40,6 +40,7 @@ function Home() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(TrustBar, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(EVSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(EVPricingCTA, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Services, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Portfolio, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Certifications, {}),
@@ -205,6 +206,28 @@ function EVSection() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4" }),
         " Call for a Free Quote"
       ] })
+    ] })
+  ] });
+}
+function EVPricingCTA() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: w2, alt: "", className: "h-full w-full object-cover" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-black/70" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-lg px-6 py-20 text-center sm:py-28", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-4xl font-black text-white sm:text-5xl md:text-6xl", children: "Power up at home" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-5 text-base leading-relaxed text-white/80 sm:text-lg", children: [
+        "Our licensed master electrician will install a Level 2 fast charger for any electric vehicle at your home —",
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-white underline decoration-accent-yellow decoration-2 underline-offset-4", children: "starting at $895" }),
+        "."
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8 flex flex-col items-stretch gap-3 sm:mx-auto sm:max-w-xs", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "inline-flex items-center justify-center gap-2 rounded-2xl bg-accent-yellow px-6 py-4 text-base font-bold text-black shadow-lg shadow-accent-yellow/30 transition hover:brightness-110", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-5 w-5" }),
+        " Call Us Now"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-xs text-white/50", children: "Permit filing included · Tesla, ChargePoint, JuiceBox & more · Baytown TX & Houston area" })
     ] })
   ] });
 }
@@ -387,9 +410,9 @@ function Portfolio() {
     });
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "portfolio", className: "py-16 sm:py-24", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-6xl px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-end justify-between gap-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-6xl px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(SectionHeader, { eyebrow: "Real client work", title: "Our Work" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden shrink-0 items-center gap-2 sm:flex", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-0 top-1/2 hidden -translate-y-1/2 items-center gap-2 sm:flex", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => scroll("left"), disabled: !canScrollLeft, "aria-label": "Scroll left", className: "grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground transition hover:border-accent-yellow hover:text-accent-yellow disabled:cursor-not-allowed disabled:opacity-30", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "h-5 w-5" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => scroll("right"), disabled: !canScrollRight, "aria-label": "Scroll right", className: "grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground transition hover:border-accent-yellow hover:text-accent-yellow disabled:cursor-not-allowed disabled:opacity-30", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-5 w-5" }) })
       ] })
@@ -473,8 +496,8 @@ function AboutUs() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: aboutUsImg, alt: "Christian — Owner, Electrical & Renewable Services", className: "h-full w-full object-cover" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-4 left-4 right-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-lg font-bold text-white", children: "Christian" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/70", children: "Owner & Master Electrician" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-lg font-bold text-white" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/70", children: "We Install Tesla Powerwall Systems" })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-3 space-y-5", children: [
@@ -625,7 +648,7 @@ function Contact() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(ContactRow, { icon: MapPin, label: "Service area", value: ADDRESS, accent: "yellow" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-yellow px-6 py-4 text-sm font-bold text-black transition hover:brightness-110 sm:w-auto sm:rounded-2xl sm:text-base", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-5 w-5" }),
-          " Tap to Call Christian Now"
+          " Call us now"
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground pt-1", children: "Most installs quoted within 24 hours. Same-day calls welcome." })
       ] }),

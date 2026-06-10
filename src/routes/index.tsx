@@ -73,6 +73,7 @@ function Home() {
       <Hero />
       <TrustBar />
       <EVSection />
+      <EVPricingCTA />
       <Services />
       <Portfolio />
       <Certifications />
@@ -294,6 +295,50 @@ function EVSection() {
         >
           <Phone className="h-4 w-4" /> Call for a Free Quote
         </a>
+      </div>
+    </section>
+  );
+}
+
+/* ─── EV PRICING CTA ─────────────────────────────────────────────────────── */
+function EVPricingCTA() {
+  return (
+    <section className="relative overflow-hidden">
+      {/* Background — EV charger photo with dark overlay */}
+      <div className="absolute inset-0">
+        <img
+          src={w2}
+          alt=""
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+
+      <div className="relative mx-auto max-w-lg px-6 py-20 text-center sm:py-28">
+        <h2 className="font-display text-4xl font-black text-white sm:text-5xl md:text-6xl">
+          Power up at home
+        </h2>
+        <p className="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
+          Our licensed master electrician will install a Level 2 fast charger for any
+          electric vehicle at your home —{" "}
+          <span className="font-bold text-white underline decoration-accent-yellow decoration-2 underline-offset-4">
+            starting at $895
+          </span>
+          .
+        </p>
+
+        <div className="mt-8 flex flex-col items-stretch gap-3 sm:mx-auto sm:max-w-xs">
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent-yellow px-6 py-4 text-base font-bold text-black shadow-lg shadow-accent-yellow/30 transition hover:brightness-110"
+          >
+            <Phone className="h-5 w-5" /> Call Us Now
+          </a>
+        </div>
+
+        <p className="mt-5 text-xs text-white/50">
+          Permit filing included · Tesla, ChargePoint, JuiceBox & more · Baytown TX & Houston area
+        </p>
       </div>
     </section>
   );
