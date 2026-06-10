@@ -2,10 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Phone, Mail, MapPin, Zap, Battery, Sun, Lightbulb, Plug,
-  Fan, Tv, PlugZap, ShieldCheck, MapPinned, Wrench, CheckCircle2, ArrowRight,
+  Fan, Tv, PlugZap, ShieldCheck, MapPinned, Wrench, CheckCircle2, ArrowRight, Star, Quote,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroImg from "@/assets/hero-ev.jpg";
+import solarImg from "@/assets/solar.jpg";
+import batteryImg from "@/assets/battery.jpg";
+import electricalImg from "@/assets/electrical.jpg";
 
 const PHONE_DISPLAY = "(555) 123-4567";
 const PHONE_TEL = "+15551234567";
@@ -29,8 +32,10 @@ function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
+      <Showcase />
       <Services />
       <Certifications />
+      <Testimonials />
       <WhyUs />
       <Contact />
       <Footer />
@@ -103,6 +108,38 @@ function Hero() {
   );
 }
 
+const showcase = [
+  { img: solarImg, label: "Solar", accent: "green" as const },
+  { img: batteryImg, label: "Battery Backup", accent: "green" as const },
+  { img: heroImg, label: "EV Chargers", accent: "yellow" as const },
+  { img: electricalImg, label: "Electrical Work", accent: "yellow" as const },
+];
+
+function Showcase() {
+  return (
+    <section className="mx-auto max-w-6xl px-4 pb-4 pt-2">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+        {showcase.map((s) => (
+          <div key={s.label} className="group relative overflow-hidden rounded-2xl border border-border bg-card">
+            <img
+              src={s.img}
+              alt={s.label}
+              loading="lazy"
+              width={1024}
+              height={1024}
+              className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <span className={`absolute bottom-3 left-3 text-sm font-bold ${s.accent === "green" ? "text-accent-green" : "text-accent-yellow"}`}>
+              {s.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 const renewable = [
   { icon: PlugZap, name: "EV Chargers", desc: "Level 2 home & commercial install" },
   { icon: Battery, name: "Battery Backup", desc: "Whole-home power resilience" },
@@ -153,11 +190,44 @@ function ServiceColumn({
   );
 }
 
+// Brand-styled wordmark logos rendered with CSS — distinctive type/colors per brand.
 const certs = [
-  { name: "Tesla Certified", initials: "T" },
-  { name: "Span Smart Panel", initials: "S" },
-  { name: "Enphase Certified", initials: "E" },
-  { name: "EG4 Certified", initials: "EG4" },
+  {
+    name: "Tesla Certified Installer",
+    wordmark: "TESLA",
+    bg: "bg-black",
+    border: "border-red-500/40",
+    text: "text-white",
+    tracking: "tracking-[0.35em]",
+    font: "font-display font-bold",
+  },
+  {
+    name: "Span Smart Panel Pro",
+    wordmark: "SPAN",
+    bg: "bg-white",
+    border: "border-zinc-300",
+    text: "text-black",
+    tracking: "tracking-tight",
+    font: "font-display font-black",
+  },
+  {
+    name: "Enphase Certified",
+    wordmark: "enphase.",
+    bg: "bg-white",
+    border: "border-orange-400/50",
+    text: "text-[#F3631C]",
+    tracking: "tracking-tight",
+    font: "font-display font-bold",
+  },
+  {
+    name: "EG4 Certified",
+    wordmark: "EG4",
+    bg: "bg-[#0A2540]",
+    border: "border-sky-400/40",
+    text: "text-white",
+    tracking: "tracking-wider",
+    font: "font-display font-black italic",
+  },
 ];
 
 function Certifications() {
@@ -167,14 +237,95 @@ function Certifications() {
         <SectionHeader eyebrow="Trust & expertise" title="Certified & Licensed" />
         <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-4">
           {certs.map((c) => (
-            <div key={c.name} className="group flex flex-col items-center gap-4 rounded-2xl border border-border bg-background p-6 text-center transition hover:border-accent-yellow/40">
-              <div className="grid h-20 w-20 place-items-center rounded-full border-2 border-accent-yellow/60 bg-black font-display text-2xl font-black text-accent-yellow shadow-inner shadow-accent-yellow/10 transition group-hover:scale-105">
-                {c.initials}
+            <div
+              key={c.name}
+              className="group flex flex-col items-center gap-4 rounded-2xl border border-border bg-background p-5 text-center transition hover:border-accent-yellow/40"
+            >
+              <div
+                className={`flex h-20 w-full items-center justify-center rounded-xl border ${c.border} ${c.bg} px-3 shadow-inner`}
+              >
+                <span className={`text-2xl sm:text-[1.6rem] ${c.font} ${c.text} ${c.tracking}`}>
+                  {c.wordmark}
+                </span>
               </div>
-              <p className="text-sm font-semibold">{c.name}</p>
+              <p className="text-sm font-semibold leading-tight">{c.name}</p>
             </div>
           ))}
         </div>
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Tesla, Span, Enphase, and EG4 are trademarks of their respective owners.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+const testimonials = [
+  {
+    name: "Homero Salinas",
+    meta: "Local Guide · 36 reviews",
+    when: "2 months ago",
+    text: "My electrical box went out and a friend recommended Electrical & Renewable Services. Showed up on the same day and replaced my entire electrical box on the day it went out.",
+  },
+  {
+    name: "Tunde A.",
+    meta: "Local Guide · 20 reviews",
+    when: "a week ago",
+    text: "Christian did an excellent job installing our outdoor porch lights. They came out really nice and I couldn't be happier. He's very professional and diligent — I highly recommend his services!",
+  },
+  {
+    name: "Cheryl Krebs",
+    meta: "4 reviews",
+    when: "a week ago",
+    text: "Christian is smart and friendly. My house has special low-voltage wiring and he was the only electrician I talked with who knew the specifics of it. He is my go-to guy for electrical!",
+  },
+  {
+    name: "Jesus Tapiador",
+    meta: "9 reviews",
+    when: "a week ago",
+    text: "Skilled electrician! Installed my new Tesla charger and had to move some breakers around. What I'm most pleased about is that he understands Powerwall and Tesla Solar as well — certified under those programs, so he was able to plug my charger to the gateway for bidirectional charging. Thanks Cristian!",
+  },
+  {
+    name: "Peter Baham",
+    meta: "1 review",
+    when: "3 weeks ago",
+    text: "Great company, super knowledgeable and professional. Installed our charging station and it came out great!",
+  },
+  {
+    name: "Paige Hall",
+    meta: "Local Guide · 22 reviews",
+    when: "3 weeks ago",
+    text: "Christian did an amazing job for a great deal — only hiring him to do our electrical work from now on. He came fast the next day and was very easy to work with, even helped explain electrical problems I was having and solved some issues in my home. Excellent customer service and attitude, down to earth, and punctual. I found my go-to guy for all my electrical needs.",
+  },
+];
+
+function Testimonials() {
+  return (
+    <section id="reviews" className="mx-auto max-w-6xl px-4 py-20">
+      <SectionHeader eyebrow="What customers say" title="5-Star Google Reviews" />
+      <div className="mt-6 flex items-center justify-center gap-2 text-accent-yellow">
+        {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
+        <span className="ml-2 text-sm font-semibold text-foreground">Rated 5.0 on Google</span>
+      </div>
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {testimonials.map((t) => (
+          <article key={t.name} className="relative flex flex-col rounded-3xl border border-border bg-card p-6">
+            <Quote className="absolute right-5 top-5 h-8 w-8 text-accent-yellow/20" />
+            <div className="flex items-center gap-1 text-accent-yellow">
+              {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+            </div>
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground/90">"{t.text}"</p>
+            <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+              <div className="grid h-10 w-10 place-items-center rounded-full bg-accent-green/20 font-display font-bold text-accent-green">
+                {t.name.charAt(0)}
+              </div>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold">{t.name}</p>
+                <p className="truncate text-xs text-muted-foreground">{t.meta} · {t.when}</p>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -188,18 +339,20 @@ const reasons = [
 
 function WhyUs() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20">
-      <SectionHeader eyebrow="Why choose us" title="Power you can trust" />
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {reasons.map(({ icon: Icon, title, desc }) => (
-          <div key={title} className="rounded-3xl border border-border bg-card p-7">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-yellow text-black">
-              <Icon className="h-6 w-6" />
+    <section className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-20">
+        <SectionHeader eyebrow="Why choose us" title="Power you can trust" />
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {reasons.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="rounded-3xl border border-border bg-card p-7">
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-yellow text-black">
+                <Icon className="h-6 w-6" />
+              </div>
+              <h3 className="mt-5 text-xl font-bold">{title}</h3>
+              <p className="mt-2 text-muted-foreground">{desc}</p>
             </div>
-            <h3 className="mt-5 text-xl font-bold">{title}</h3>
-            <p className="mt-2 text-muted-foreground">{desc}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
