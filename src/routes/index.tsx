@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import * as React from "react";
 import {
   Phone, Mail, MapPin, Zap, Battery, Sun, Lightbulb, Plug,
   Fan, Tv, PlugZap, ShieldCheck, MapPinned, Wrench, CheckCircle2,
   ArrowRight, Star, Quote, Users, Clock, Award, Heart, ChevronRight,
-  X,
+  ChevronLeft, X,
 } from "lucide-react";
 
 import logo from "@/assets/logo.png";
@@ -386,99 +387,142 @@ function Services() {
 }
 
 /* ─── PORTFOLIO ───────────────────────────────────────────────────────────── */
-// All 25 photos, tagged with a category. Since we can't visually inspect them,
-// we distribute them sensibly across categories based on batch groupings.
-type Category = "All" | "EV Chargers" | "Battery & Solar" | "Electrical";
-
 interface PortfolioItem {
   src: string;
-  category: Category;
   label: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
-  // Batch 1 (work-1 to work-8): First set — likely EV charger installs
-  { src: w1, category: "EV Chargers", label: "EV Charger Install" },
-  { src: w2, category: "EV Chargers", label: "Level 2 Charger" },
-  { src: w3, category: "EV Chargers", label: "Tesla Wall Connector" },
-  { src: w4, category: "EV Chargers", label: "EV Charger Wiring" },
-  { src: w5, category: "EV Chargers", label: "Charger Panel Work" },
-  { src: w6, category: "Battery & Solar", label: "Battery Backup System" },
-  { src: w7, category: "Battery & Solar", label: "Solar & Battery" },
-  { src: w8, category: "Electrical", label: "Panel Upgrade" },
-  // Batch 2 (work-9 to work-13): Second set
-  { src: w9, category: "EV Chargers", label: "Charger Installation" },
-  { src: w10, category: "EV Chargers", label: "EV Outlet Wiring" },
-  { src: w11, category: "Battery & Solar", label: "Battery System" },
-  { src: w12, category: "Electrical", label: "Electrical Work" },
-  { src: w13, category: "Electrical", label: "Panel Work" },
-  // Batch 3 (work-14 to work-17): Third set
-  { src: w14, category: "EV Chargers", label: "Charger Install" },
-  { src: w15, category: "Battery & Solar", label: "Battery Backup" },
-  { src: w16, category: "Electrical", label: "Wiring & Circuits" },
-  { src: w17, category: "Electrical", label: "Electrical Service" },
-  // Batch 4 (work-18 to work-25): Fourth set
-  { src: w18, category: "EV Chargers", label: "Home EV Charger" },
-  { src: w19, category: "EV Chargers", label: "Level 2 Install" },
-  { src: w20, category: "Battery & Solar", label: "Solar System" },
-  { src: w21, category: "Battery & Solar", label: "Renewable Energy" },
-  { src: w22, category: "Electrical", label: "Service Upgrade" },
-  { src: w23, category: "Electrical", label: "Electrical Panel" },
-  { src: w24, category: "EV Chargers", label: "EV Charger" },
-  { src: w25, category: "Battery & Solar", label: "Battery & Solar" },
+  { src: w1, label: "EV Charger Install" },
+  { src: w2, label: "Level 2 Charger" },
+  { src: w3, label: "Tesla Wall Connector" },
+  { src: w4, label: "EV Charger Wiring" },
+  { src: w5, label: "Charger Panel Work" },
+  { src: w6, label: "Battery Backup System" },
+  { src: w7, label: "Solar & Battery" },
+  { src: w8, label: "Panel Upgrade" },
+  { src: w9, label: "Charger Installation" },
+  { src: w10, label: "EV Outlet Wiring" },
+  { src: w11, label: "Battery System" },
+  { src: w12, label: "Electrical Work" },
+  { src: w13, label: "Panel Work" },
+  { src: w14, label: "Charger Install" },
+  { src: w15, label: "Battery Backup" },
+  { src: w16, label: "Wiring & Circuits" },
+  { src: w17, label: "Electrical Service" },
+  { src: w18, label: "Home EV Charger" },
+  { src: w19, label: "Level 2 Install" },
+  { src: w20, label: "Solar System" },
+  { src: w21, label: "Renewable Energy" },
+  { src: w22, label: "Service Upgrade" },
+  { src: w23, label: "Electrical Panel" },
+  { src: w24, label: "EV Charger" },
+  { src: w25, label: "Battery & Solar" },
 ];
 
-const categories: Category[] = ["All", "EV Chargers", "Battery & Solar", "Electrical"];
+const SCROLL_AMOUNT = 420;
 
 function Portfolio() {
-  const [active, setActive] = useState<Category>("All");
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+  const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [lightbox, setLightbox] = useState<PortfolioItem | null>(null);
 
-  const filtered = active === "All" ? portfolioItems : portfolioItems.filter((p) => p.category === active);
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  };
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT, behavior: "smooth" });
+  };
 
   return (
-    <section id="portfolio" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-      <SectionHeader eyebrow="Real client work" title="Our Work" />
-
-      {/* Filter tabs */}
-      <div className="mt-7 flex flex-wrap justify-center gap-2">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActive(cat)}
-            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
-              active === cat
-                ? "bg-accent-yellow text-black"
-                : "border border-border bg-card text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
+    <section id="portfolio" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="relative">
+          <SectionHeader eyebrow="Real client work" title="Our Work" />
+          {/* Arrow controls — desktop only, pinned to the right */}
+          <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 items-center gap-2 sm:flex">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+              className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground transition hover:border-accent-yellow hover:text-accent-yellow disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+              className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground transition hover:border-accent-yellow hover:text-accent-yellow disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Grid */}
-      <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5">
-        {filtered.map((item, i) => (
-          <button
-            key={`${item.src}-${i}`}
-            onClick={() => setLightbox(item)}
-            className="group relative overflow-hidden rounded-xl aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow"
-          >
-            <img
-              src={item.src}
-              alt={item.label}
-              loading="lazy"
-              className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/50" />
-            <div className="absolute inset-0 flex items-end justify-start p-2 opacity-0 transition duration-300 group-hover:opacity-100">
-              <span className="rounded-md bg-black/70 px-2 py-0.5 text-xs font-semibold text-white backdrop-blur-sm">
-                {item.label}
-              </span>
-            </div>
-          </button>
-        ))}
+      {/* Horizontal scroll strip */}
+      <div className="relative mt-8">
+        {/* Left arrow — floats over strip on mobile too */}
+        <button
+          onClick={() => scroll("left")}
+          disabled={!canScrollLeft}
+          aria-label="Scroll left"
+          className="absolute left-2 top-1/2 z-10 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white shadow-lg backdrop-blur-sm transition hover:bg-accent-yellow hover:text-black disabled:opacity-0 sm:hidden"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        {/* Right arrow — floats over strip on mobile too */}
+        <button
+          onClick={() => scroll("right")}
+          disabled={!canScrollRight}
+          aria-label="Scroll right"
+          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white shadow-lg backdrop-blur-sm transition hover:bg-accent-yellow hover:text-black disabled:opacity-0 sm:hidden"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+
+        <div
+          ref={scrollRef}
+          onScroll={updateArrows}
+          className="overflow-x-auto scrollbar-none"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          <div className="flex gap-3 px-4 sm:gap-4 sm:px-8" style={{ width: "max-content" }}>
+            {portfolioItems.map((item, i) => (
+              <button
+                key={i}
+                onClick={() => setLightbox(item)}
+                className="group relative shrink-0 overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow"
+                style={{ width: "clamp(260px, 30vw, 380px)", height: "clamp(320px, 38vw, 460px)" }}
+              >
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end p-3 opacity-0 transition duration-300 group-hover:opacity-100">
+                  <span className="rounded-lg bg-black/70 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                    {item.label}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Edge fades */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-background to-transparent" />
       </div>
 
       {/* Lightbox */}

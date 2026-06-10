@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
-import { P as Phone, a as PlugZap, A as ArrowRight, S as ShieldCheck, Z as Zap, W as Wrench, B as Battery, b as Sun, C as ChevronRight, L as Lightbulb, c as Plug, F as Fan, T as Tv, X, d as Clock, U as Users, e as Award, H as Heart, f as Star, Q as Quote, M as MapPinned, g as Mail, h as MapPin, i as CircleCheck } from "../_libs/lucide-react.mjs";
+import { P as Phone, a as PlugZap, A as ArrowRight, S as ShieldCheck, Z as Zap, W as Wrench, B as Battery, b as Sun, C as ChevronRight, L as Lightbulb, c as Plug, F as Fan, T as Tv, d as ChevronLeft, X, e as Clock, U as Users, f as Award, H as Heart, g as Star, Q as Quote, M as MapPinned, h as Mail, i as MapPin, j as CircleCheck } from "../_libs/lucide-react.mjs";
 const logo = "/assets/logo-aHZpHL0g.png";
 const heroEv = "/assets/hero-ev-Da36mqbP.jpg";
 const solarImg = "/assets/solar-VqQWAgbl.jpg";
@@ -290,150 +290,128 @@ function Services() {
     ] }) })
   ] }) });
 }
-const portfolioItems = [
-  // Batch 1 (work-1 to work-8): First set — likely EV charger installs
-  {
-    src: w1,
-    category: "EV Chargers",
-    label: "EV Charger Install"
-  },
-  {
-    src: w2,
-    category: "EV Chargers",
-    label: "Level 2 Charger"
-  },
-  {
-    src: w3,
-    category: "EV Chargers",
-    label: "Tesla Wall Connector"
-  },
-  {
-    src: w4,
-    category: "EV Chargers",
-    label: "EV Charger Wiring"
-  },
-  {
-    src: w5,
-    category: "EV Chargers",
-    label: "Charger Panel Work"
-  },
-  {
-    src: w6,
-    category: "Battery & Solar",
-    label: "Battery Backup System"
-  },
-  {
-    src: w7,
-    category: "Battery & Solar",
-    label: "Solar & Battery"
-  },
-  {
-    src: w8,
-    category: "Electrical",
-    label: "Panel Upgrade"
-  },
-  // Batch 2 (work-9 to work-13): Second set
-  {
-    src: w9,
-    category: "EV Chargers",
-    label: "Charger Installation"
-  },
-  {
-    src: w10,
-    category: "EV Chargers",
-    label: "EV Outlet Wiring"
-  },
-  {
-    src: w11,
-    category: "Battery & Solar",
-    label: "Battery System"
-  },
-  {
-    src: w12,
-    category: "Electrical",
-    label: "Electrical Work"
-  },
-  {
-    src: w13,
-    category: "Electrical",
-    label: "Panel Work"
-  },
-  // Batch 3 (work-14 to work-17): Third set
-  {
-    src: w14,
-    category: "EV Chargers",
-    label: "Charger Install"
-  },
-  {
-    src: w15,
-    category: "Battery & Solar",
-    label: "Battery Backup"
-  },
-  {
-    src: w16,
-    category: "Electrical",
-    label: "Wiring & Circuits"
-  },
-  {
-    src: w17,
-    category: "Electrical",
-    label: "Electrical Service"
-  },
-  // Batch 4 (work-18 to work-25): Fourth set
-  {
-    src: w18,
-    category: "EV Chargers",
-    label: "Home EV Charger"
-  },
-  {
-    src: w19,
-    category: "EV Chargers",
-    label: "Level 2 Install"
-  },
-  {
-    src: w20,
-    category: "Battery & Solar",
-    label: "Solar System"
-  },
-  {
-    src: w21,
-    category: "Battery & Solar",
-    label: "Renewable Energy"
-  },
-  {
-    src: w22,
-    category: "Electrical",
-    label: "Service Upgrade"
-  },
-  {
-    src: w23,
-    category: "Electrical",
-    label: "Electrical Panel"
-  },
-  {
-    src: w24,
-    category: "EV Chargers",
-    label: "EV Charger"
-  },
-  {
-    src: w25,
-    category: "Battery & Solar",
-    label: "Battery & Solar"
-  }
-];
-const categories = ["All", "EV Chargers", "Battery & Solar", "Electrical"];
+const portfolioItems = [{
+  src: w1,
+  label: "EV Charger Install"
+}, {
+  src: w2,
+  label: "Level 2 Charger"
+}, {
+  src: w3,
+  label: "Tesla Wall Connector"
+}, {
+  src: w4,
+  label: "EV Charger Wiring"
+}, {
+  src: w5,
+  label: "Charger Panel Work"
+}, {
+  src: w6,
+  label: "Battery Backup System"
+}, {
+  src: w7,
+  label: "Solar & Battery"
+}, {
+  src: w8,
+  label: "Panel Upgrade"
+}, {
+  src: w9,
+  label: "Charger Installation"
+}, {
+  src: w10,
+  label: "EV Outlet Wiring"
+}, {
+  src: w11,
+  label: "Battery System"
+}, {
+  src: w12,
+  label: "Electrical Work"
+}, {
+  src: w13,
+  label: "Panel Work"
+}, {
+  src: w14,
+  label: "Charger Install"
+}, {
+  src: w15,
+  label: "Battery Backup"
+}, {
+  src: w16,
+  label: "Wiring & Circuits"
+}, {
+  src: w17,
+  label: "Electrical Service"
+}, {
+  src: w18,
+  label: "Home EV Charger"
+}, {
+  src: w19,
+  label: "Level 2 Install"
+}, {
+  src: w20,
+  label: "Solar System"
+}, {
+  src: w21,
+  label: "Renewable Energy"
+}, {
+  src: w22,
+  label: "Service Upgrade"
+}, {
+  src: w23,
+  label: "Electrical Panel"
+}, {
+  src: w24,
+  label: "EV Charger"
+}, {
+  src: w25,
+  label: "Battery & Solar"
+}];
+const SCROLL_AMOUNT = 420;
 function Portfolio() {
-  const [active, setActive] = reactExports.useState("All");
+  const scrollRef = reactExports.useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = reactExports.useState(false);
+  const [canScrollRight, setCanScrollRight] = reactExports.useState(true);
   const [lightbox, setLightbox] = reactExports.useState(null);
-  const filtered = active === "All" ? portfolioItems : portfolioItems.filter((p) => p.category === active);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "portfolio", className: "mx-auto max-w-6xl px-4 py-16 sm:py-24", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SectionHeader, { eyebrow: "Real client work", title: "Our Work" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-7 flex flex-wrap justify-center gap-2", children: categories.map((cat) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setActive(cat), className: `rounded-full px-4 py-1.5 text-sm font-semibold transition ${active === cat ? "bg-accent-yellow text-black" : "border border-border bg-card text-muted-foreground hover:text-foreground"}`, children: cat }, cat)) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5", children: filtered.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setLightbox(item), className: "group relative overflow-hidden rounded-xl aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: item.src, alt: item.label, loading: "lazy", className: "h-full w-full object-cover transition duration-500 group-hover:scale-110" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/50" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-end justify-start p-2 opacity-0 transition duration-300 group-hover:opacity-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-md bg-black/70 px-2 py-0.5 text-xs font-semibold text-white backdrop-blur-sm", children: item.label }) })
-    ] }, `${item.src}-${i}`)) }),
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  };
+  const scroll = (dir) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({
+      left: dir === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT,
+      behavior: "smooth"
+    });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "portfolio", className: "py-16 sm:py-24", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-6xl px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-end justify-between gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(SectionHeader, { eyebrow: "Real client work", title: "Our Work" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden shrink-0 items-center gap-2 sm:flex", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => scroll("left"), disabled: !canScrollLeft, "aria-label": "Scroll left", className: "grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground transition hover:border-accent-yellow hover:text-accent-yellow disabled:cursor-not-allowed disabled:opacity-30", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "h-5 w-5" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => scroll("right"), disabled: !canScrollRight, "aria-label": "Scroll right", className: "grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground transition hover:border-accent-yellow hover:text-accent-yellow disabled:cursor-not-allowed disabled:opacity-30", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-5 w-5" }) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mt-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => scroll("left"), disabled: !canScrollLeft, "aria-label": "Scroll left", className: "absolute left-2 top-1/2 z-10 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white shadow-lg backdrop-blur-sm transition hover:bg-accent-yellow hover:text-black disabled:opacity-0 sm:hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "h-5 w-5" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => scroll("right"), disabled: !canScrollRight, "aria-label": "Scroll right", className: "absolute right-2 top-1/2 z-10 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white shadow-lg backdrop-blur-sm transition hover:bg-accent-yellow hover:text-black disabled:opacity-0 sm:hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-5 w-5" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: scrollRef, onScroll: updateArrows, className: "overflow-x-auto scrollbar-none", style: {
+        WebkitOverflowScrolling: "touch"
+      }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-3 px-4 sm:gap-4 sm:px-8", style: {
+        width: "max-content"
+      }, children: portfolioItems.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setLightbox(item), className: "group relative shrink-0 overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow", style: {
+        width: "clamp(260px, 30vw, 380px)",
+        height: "clamp(320px, 38vw, 460px)"
+      }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: item.src, alt: item.label, loading: "lazy", className: "h-full w-full object-cover transition duration-500 group-hover:scale-105" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-x-0 bottom-0 flex items-end p-3 opacity-0 transition duration-300 group-hover:opacity-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-lg bg-black/70 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm", children: item.label }) })
+      ] }, i)) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-background to-transparent" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-background to-transparent" })
+    ] }),
     lightbox && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4", onClick: () => setLightbox(null), children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setLightbox(null), className: "absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition", "aria-label": "Close", children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-5 w-5" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lightbox.src, alt: lightbox.label, className: "max-h-[90vh] max-w-full rounded-2xl object-contain shadow-2xl", onClick: (e) => e.stopPropagation() }),
