@@ -13,7 +13,7 @@ import heroEv from "@/assets/hero-ev.jpg";
 import solarImg from "@/assets/solar.jpg";
 import batteryImg from "@/assets/battery.jpg";
 import electricalImg from "@/assets/electrical.jpg";
-import aboutUsImg from "@/assets/about-us.png";
+import aboutUsImg from "@/assets/about-uss.png";
 
 // Portfolio images
 import w1 from "@/assets/portfolio/work-1.jpeg";
@@ -44,7 +44,7 @@ import w25 from "@/assets/portfolio/work-25.jpeg";
 
 const PHONE_DISPLAY = "+1 (832) 868-2964";
 const PHONE_TEL = "+18328682964";
-const EMAIL = "electricalandrenewableservices@gmail.com";
+const EMAIL = "info@electricalrenewableservices.org";
 const ADDRESS = "Baytown TX, 77523, United States";
 
 export const Route = createFileRoute("/")({
@@ -631,8 +631,8 @@ function AboutUs() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
-              <p className="font-display text-lg font-bold text-white">Christian</p>
-              <p className="text-sm text-white/70">Owner & Master Electrician</p>
+              <p className="font-display text-lg font-bold text-white"></p>
+              <p className="text-sm text-white/70">We Install Tesla Powerwall Systems</p>
             </div>
           </div>
         </div>
@@ -821,7 +821,7 @@ function Contact() {
               href={`tel:${PHONE_TEL}`}
               className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-yellow px-6 py-4 text-sm font-bold text-black transition hover:brightness-110 sm:w-auto sm:rounded-2xl sm:text-base"
             >
-              <Phone className="h-5 w-5" /> Tap to Call Christian Now
+              <Phone className="h-5 w-5" /> Call us now
             </a>
             <p className="text-xs text-muted-foreground pt-1">Most installs quoted within 24 hours. Same-day calls welcome.</p>
           </div>
