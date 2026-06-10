@@ -2,14 +2,44 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Phone, Mail, MapPin, Zap, Battery, Sun, Lightbulb, Plug,
-  Fan, Tv, PlugZap, ShieldCheck, MapPinned, Wrench, CheckCircle2, ArrowRight, Star, Quote,
-  Users, Clock, Award, Heart,
+  Fan, Tv, PlugZap, ShieldCheck, MapPinned, Wrench, CheckCircle2,
+  ArrowRight, Star, Quote, Users, Clock, Award, Heart, ChevronRight,
+  X,
 } from "lucide-react";
+
 import logo from "@/assets/logo.png";
-import heroImg from "@/assets/hero-ev.jpg";
+import heroEv from "@/assets/hero-ev.jpg";
 import solarImg from "@/assets/solar.jpg";
 import batteryImg from "@/assets/battery.jpg";
 import electricalImg from "@/assets/electrical.jpg";
+import aboutUsImg from "@/assets/about-us.png";
+
+// Portfolio images
+import w1 from "@/assets/portfolio/work-1.jpeg";
+import w2 from "@/assets/portfolio/work-2.jpeg";
+import w3 from "@/assets/portfolio/work-3.jpeg";
+import w4 from "@/assets/portfolio/work-4.jpeg";
+import w5 from "@/assets/portfolio/work-5.jpeg";
+import w6 from "@/assets/portfolio/work-6.jpeg";
+import w7 from "@/assets/portfolio/work-7.jpeg";
+import w8 from "@/assets/portfolio/work-8.jpeg";
+import w9 from "@/assets/portfolio/work-9.jpeg";
+import w10 from "@/assets/portfolio/work-10.jpeg";
+import w11 from "@/assets/portfolio/work-11.jpeg";
+import w12 from "@/assets/portfolio/work-12.jpeg";
+import w13 from "@/assets/portfolio/work-13.jpeg";
+import w14 from "@/assets/portfolio/work-14.jpeg";
+import w15 from "@/assets/portfolio/work-15.jpeg";
+import w16 from "@/assets/portfolio/work-16.jpeg";
+import w17 from "@/assets/portfolio/work-17.jpeg";
+import w18 from "@/assets/portfolio/work-18.jpeg";
+import w19 from "@/assets/portfolio/work-19.jpeg";
+import w20 from "@/assets/portfolio/work-20.jpeg";
+import w21 from "@/assets/portfolio/work-21.jpeg";
+import w22 from "@/assets/portfolio/work-22.jpeg";
+import w23 from "@/assets/portfolio/work-23.jpeg";
+import w24 from "@/assets/portfolio/work-24.jpeg";
+import w25 from "@/assets/portfolio/work-25.jpeg";
 
 const PHONE_DISPLAY = "+1 (832) 868-2964";
 const PHONE_TEL = "+18328682964";
@@ -19,10 +49,17 @@ const ADDRESS = "Baytown TX, 77523, United States";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Electrical & Renewable Services LLC — EV Chargers, Battery Backup & Solar" },
-      { name: "description", content: "Licensed electricians specializing in EV chargers, battery backup, solar, and general electrical services. Tesla, Span, Enphase & EG4 certified." },
-      { property: "og:title", content: "Electrical & Renewable Services LLC" },
-      { property: "og:description", content: "EV Chargers • Battery Backup • Solar — Licensed & Certified Local Electricians." },
+      { title: "Electrical & Renewable Services LLC — EV Charger Installers in Baytown TX" },
+      {
+        name: "description",
+        content:
+          "Houston-area EV charger specialists. Tesla-certified Level 2 home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964.",
+      },
+      { property: "og:title", content: "Electrical & Renewable Services LLC — EV Charger Specialists" },
+      {
+        property: "og:description",
+        content: "Tesla-certified EV charger installs, battery backup & solar. Baytown TX. Call (832) 868-2964.",
+      },
     ],
   }),
   component: Home,
@@ -33,8 +70,10 @@ function Home() {
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <Nav />
       <Hero />
-      <Showcase />
+      <TrustBar />
+      <EVSection />
       <Services />
+      <Portfolio />
       <Certifications />
       <AboutUs />
       <Testimonials />
@@ -45,9 +84,10 @@ function Home() {
   );
 }
 
+/* ─── NAV ─────────────────────────────────────────────────────────────────── */
 function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <a href="#top" className="flex items-center gap-2.5 min-w-0">
           <img src={logo} alt="Logo" className="h-10 w-10 shrink-0" width={40} height={40} />
@@ -55,11 +95,18 @@ function Nav() {
             Electrical & <span className="text-accent-yellow">Renewable</span>
           </span>
         </a>
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+          <a href="#ev-chargers" className="hover:text-accent-yellow transition-colors">EV Chargers</a>
+          <a href="#services" className="hover:text-foreground transition-colors">Services</a>
+          <a href="#portfolio" className="hover:text-foreground transition-colors">Our Work</a>
+          <a href="#about" className="hover:text-foreground transition-colors">About</a>
+        </nav>
         <a
           href={`tel:${PHONE_TEL}`}
           className="inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-2 text-sm font-semibold text-black transition hover:brightness-110"
         >
-          <Phone className="h-4 w-4" /> <span className="hidden sm:inline">Call Now</span>
+          <Phone className="h-4 w-4" />
+          <span className="hidden sm:inline">Call Now</span>
           <span className="sm:hidden">Call</span>
         </a>
       </div>
@@ -67,42 +114,75 @@ function Nav() {
   );
 }
 
+/* ─── HERO ────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroImg} alt="" className="h-full w-full object-cover opacity-30" width={1536} height={1024} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" />
+        <img
+          src={heroEv}
+          alt=""
+          className="h-full w-full object-cover opacity-25"
+          width={1536}
+          height={1024}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
       </div>
-      <div className="relative mx-auto max-w-6xl px-4 pt-12 pb-16 sm:pt-24 sm:pb-28">
-        <div className="flex flex-col items-center text-center">
-          <img src={logo} alt="Electrical & Renewable Services Logo" className="h-20 w-20 sm:h-32 sm:w-32" width={128} height={128} />
-          <h1 className="mt-5 font-display text-3xl font-black leading-tight sm:mt-6 sm:text-4xl md:text-6xl">
-            Electrical & Renewable<br />
-            <span className="text-accent-yellow">Services</span> <span className="text-muted-foreground">LLC</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-xl text-muted-foreground">
-            <span className="text-accent-yellow font-semibold">EV Chargers</span>
-            <span className="mx-1.5 sm:mx-2">•</span>
-            <span className="text-accent-green font-semibold">Battery Backup</span>
-            <span className="mx-1.5 sm:mx-2">•</span>
-            <span className="text-accent-green font-semibold">Solar</span>
-          </p>
-          <p className="mt-2 text-xs sm:text-sm text-muted-foreground/80">Licensed, local, and certified — powering homes the smart way.</p>
 
-          <div className="mt-6 flex w-full flex-col items-stretch gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:items-center">
+      <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-20 sm:pt-28 sm:pb-32">
+        <div className="flex flex-col items-center text-center">
+          {/* Badge */}
+          <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
+            <PlugZap className="h-3.5 w-3.5" /> Houston's EV Charger Specialists
+          </span>
+
+          <img
+            src={logo}
+            alt="Electrical & Renewable Services Logo"
+            className="h-20 w-20 sm:h-28 sm:w-28"
+            width={112}
+            height={112}
+          />
+
+          <h1 className="mt-5 font-display text-3xl font-black leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            EV Charger Installs<br />
+            <span className="text-accent-yellow">Done Right.</span>
+          </h1>
+
+          <p className="mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg">
+            Tesla-certified Level 2 home charger installations in the greater Houston area.
+            Also serving battery backup, solar & general electrical needs.
+          </p>
+
+          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-yellow px-5 py-3 text-sm font-bold text-black shadow-lg shadow-accent-yellow/20 transition hover:brightness-110 sm:px-7 sm:py-4 sm:text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-yellow px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-accent-yellow/25 transition hover:brightness-110 sm:px-8 sm:py-4 sm:text-base"
             >
               <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-accent-green/40 bg-accent-green/10 px-5 py-3 text-sm font-bold text-accent-green transition hover:bg-accent-green/20 sm:px-7 sm:py-4 sm:text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-accent-green/40 bg-accent-green/10 px-6 py-3.5 text-sm font-bold text-accent-green transition hover:bg-accent-green/20 sm:px-8 sm:py-4 sm:text-base"
             >
-              Get Free Quote <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+              Free Quote <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
+          </div>
+
+          {/* Quick stats */}
+          <div className="mt-10 flex flex-wrap justify-center gap-6 text-center sm:gap-10">
+            {[
+              { value: "12+", label: "Years Experience" },
+              { value: "500+", label: "Jobs Completed" },
+              { value: "5.0★", label: "Google Rating" },
+              { value: "Same Day", label: "Quotes" },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-xl font-black text-accent-yellow sm:text-2xl">{s.value}</p>
+                <p className="text-xs text-muted-foreground sm:text-sm">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -110,151 +190,381 @@ function Hero() {
   );
 }
 
-const showcase = [
-  { img: solarImg, label: "Solar", accent: "green" as const },
-  { img: batteryImg, label: "Battery Backup", accent: "green" as const },
-  { img: heroImg, label: "EV Chargers", accent: "yellow" as const },
-  { img: electricalImg, label: "Electrical Work", accent: "yellow" as const },
+/* ─── TRUST BAR ───────────────────────────────────────────────────────────── */
+const certs = [
+  { wordmark: "TESLA", bg: "bg-black", border: "border-red-500/30", text: "text-white", font: "font-display font-bold tracking-[0.35em]" },
+  { wordmark: "SPAN", bg: "bg-white", border: "border-zinc-300", text: "text-black", font: "font-display font-black tracking-tight" },
+  { wordmark: "enphase.", bg: "bg-white", border: "border-orange-400/50", text: "text-[#F3631C]", font: "font-display font-bold tracking-tight" },
+  { wordmark: "EG4", bg: "bg-[#0A2540]", border: "border-sky-400/40", text: "text-white", font: "font-display font-black italic tracking-wider" },
 ];
 
-function Showcase() {
+function TrustBar() {
   return (
-    <section className="mx-auto max-w-6xl px-3 pb-4 pt-2 sm:px-4">
-      <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-4">
-        {showcase.map((s) => (
-          <div key={s.label} className="group relative overflow-hidden rounded-xl border border-border bg-card sm:rounded-2xl">
+    <div className="border-y border-border/50 bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground shrink-0">Certified by</span>
+          {certs.map((c) => (
+            <div
+              key={c.wordmark}
+              className={`flex h-9 items-center justify-center rounded-lg border px-3 sm:h-10 sm:px-4 ${c.bg} ${c.border}`}
+            >
+              <span className={`text-sm sm:text-base ${c.font} ${c.text}`}>{c.wordmark}</span>
+            </div>
+          ))}
+          <div className="hidden sm:flex items-center gap-1.5 ml-2 pl-4 border-l border-border">
+            <ShieldCheck className="h-4 w-4 text-accent-green" />
+            <span className="text-xs font-semibold text-muted-foreground">Licensed & Insured</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── EV SECTION ──────────────────────────────────────────────────────────── */
+// Use first 3 portfolio images as EV feature photos
+const evPhotos = [w1, w2, w3];
+
+const evFeatures = [
+  { icon: ShieldCheck, title: "Permitted & Inspected", desc: "Every install is fully permitted and passes local inspection. No shortcuts." },
+  { icon: Zap, title: "Panel Assessment Included", desc: "We check your panel capacity before starting — no surprise upgrades." },
+  { icon: PlugZap, title: "All Major Brands", desc: "Tesla Wall Connector, ChargePoint, JuiceBox, Grizzl-E, Emporia & more." },
+  { icon: Wrench, title: "Same-Day Quotes", desc: "Fast response, transparent pricing, no hidden fees." },
+];
+
+function EVSection() {
+  return (
+    <section id="ev-chargers" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+      {/* Header */}
+      <div className="flex flex-col items-center text-center">
+        <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
+          <PlugZap className="h-3.5 w-3.5" /> Our Specialty
+        </span>
+        <h2 className="font-display text-3xl font-black sm:text-4xl md:text-5xl">
+          EV Charger Installation
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
+          We specialize in Level 2 home EV charger installs — the kind that charge your car overnight,
+          not over two days. Tesla-certified and Baytown-based, we've done hundreds of installs across the greater Houston area.
+        </p>
+      </div>
+
+      {/* Photo strip */}
+      <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
+        {evPhotos.map((src, i) => (
+          <div key={i} className="relative overflow-hidden rounded-xl sm:rounded-2xl aspect-[4/3]">
             <img
-              src={s.img}
-              alt={s.label}
+              src={src}
+              alt={`EV charger install ${i + 1}`}
               loading="lazy"
-              width={1024}
-              height={1024}
-              className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover transition duration-500 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <span className={`absolute bottom-2 left-2 text-xs font-bold sm:bottom-3 sm:left-3 sm:text-sm ${s.accent === "green" ? "text-accent-green" : "text-accent-yellow"}`}>
-              {s.label}
-            </span>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           </div>
         ))}
+      </div>
+
+      {/* Features grid */}
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+        {evFeatures.map(({ icon: Icon, title, desc }) => (
+          <div
+            key={title}
+            className="rounded-2xl border border-border bg-card p-5 ring-1 ring-accent-yellow/10 transition hover:ring-accent-yellow/30"
+          >
+            <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-yellow/15 text-accent-yellow">
+              <Icon className="h-5 w-5" />
+            </div>
+            <h3 className="mt-3 font-display text-base font-bold">{title}</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground">{desc}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA strip */}
+      <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl border border-accent-yellow/20 bg-accent-yellow/5 p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div>
+          <p className="font-display text-lg font-bold">Ready to charge smarter?</p>
+          <p className="mt-1 text-sm text-muted-foreground">Most installs completed in a single day.</p>
+        </div>
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black transition hover:brightness-110"
+        >
+          <Phone className="h-4 w-4" /> Call for a Free Quote
+        </a>
       </div>
     </section>
   );
 }
 
-const renewable = [
-  { icon: PlugZap, name: "EV Chargers", desc: "Level 2 home & commercial install" },
-  { icon: Battery, name: "Battery Backup", desc: "Whole-home power resilience" },
-  { icon: Sun, name: "Solar", desc: "Grid-tied & off-grid systems" },
+/* ─── SERVICES ────────────────────────────────────────────────────────────── */
+const renewableServices = [
+  { icon: Battery, name: "Battery Backup", desc: "Whole-home power resilience with Tesla Powerwall, EG4 & Span smart panels." },
+  { icon: Sun, name: "Solar", desc: "Grid-tied & off-grid solar systems. Enphase certified." },
 ];
-const general = [
-  { icon: Lightbulb, name: "Lighting", desc: "Indoor, outdoor & landscape" },
+const generalServices = [
+  { icon: Lightbulb, name: "Lighting", desc: "Indoor, outdoor & landscape lighting" },
   { icon: Plug, name: "Receptacles", desc: "New outlets, USB & GFCI" },
-  { icon: Zap, name: "Generator Outlets", desc: "Standby & portable inlets" },
+  { icon: Zap, name: "Generator Outlets", desc: "Standby & portable generator inlets" },
   { icon: Fan, name: "Ceiling Fans", desc: "Install & replacement" },
   { icon: Tv, name: "TV Mounting", desc: "Concealed wiring & mount" },
 ];
 
 function Services() {
   return (
-    <section id="services" className="mx-auto max-w-6xl px-3 py-12 sm:px-4 sm:py-20">
-      <SectionHeader eyebrow="What we do" title="Services" />
-      <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 md:grid-cols-2">
-        <ServiceColumn title="Renewable Energy" accent="green" items={renewable} />
-        <ServiceColumn title="General Electrical" accent="yellow" items={general} />
+    <section id="services" className="border-t border-border bg-card/20">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <SectionHeader eyebrow="Everything we do" title="All Services" />
+
+        {/* Renewable — 2 large cards with photos */}
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6">
+          {[
+            { img: batteryImg, svc: renewableServices[0], accent: "green" as const },
+            { img: solarImg, svc: renewableServices[1], accent: "green" as const },
+          ].map(({ img, svc, accent }) => {
+            const ServiceIcon = svc.icon;
+            return (
+              <div
+                key={svc.name}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl"
+              >
+                <div className="relative h-44 sm:h-56 overflow-hidden">
+                  <img
+                    src={img}
+                    alt={svc.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-green/15 text-accent-green">
+                      <ServiceIcon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-accent-green">{svc.name}</h3>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground">{svc.desc}</p>
+                  <a
+                    href="#contact"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-green hover:gap-2.5 transition-all"
+                  >
+                    Get a Quote <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* General electrical — compact list */}
+        <div className="mt-6">
+          <div className="rounded-2xl border border-border bg-card p-5 ring-1 ring-accent-yellow/10 sm:rounded-3xl sm:p-7">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-yellow/15 text-accent-yellow">
+                <Zap className="h-5 w-5" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-accent-yellow">General Electrical</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+              {generalServices.map(({ icon: Icon, name, desc }) => (
+                <div key={name} className="flex flex-col items-center gap-2 rounded-xl bg-muted/40 p-3 text-center transition hover:bg-muted/70">
+                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-background text-accent-yellow">
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  <p className="text-xs font-semibold">{name}</p>
+                  <p className="text-[0.65rem] text-muted-foreground leading-tight">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-function ServiceColumn({
-  title, accent, items,
-}: { title: string; accent: "green" | "yellow"; items: { icon: any; name: string; desc: string }[] }) {
-  const accentColor = accent === "green" ? "text-accent-green" : "text-accent-yellow";
-  const ring = accent === "green" ? "ring-accent-green/20" : "ring-accent-yellow/20";
+/* ─── PORTFOLIO ───────────────────────────────────────────────────────────── */
+// All 25 photos, tagged with a category. Since we can't visually inspect them,
+// we distribute them sensibly across categories based on batch groupings.
+type Category = "All" | "EV Chargers" | "Battery & Solar" | "Electrical";
+
+interface PortfolioItem {
+  src: string;
+  category: Category;
+  label: string;
+}
+
+const portfolioItems: PortfolioItem[] = [
+  // Batch 1 (work-1 to work-8): First set — likely EV charger installs
+  { src: w1, category: "EV Chargers", label: "EV Charger Install" },
+  { src: w2, category: "EV Chargers", label: "Level 2 Charger" },
+  { src: w3, category: "EV Chargers", label: "Tesla Wall Connector" },
+  { src: w4, category: "EV Chargers", label: "EV Charger Wiring" },
+  { src: w5, category: "EV Chargers", label: "Charger Panel Work" },
+  { src: w6, category: "Battery & Solar", label: "Battery Backup System" },
+  { src: w7, category: "Battery & Solar", label: "Solar & Battery" },
+  { src: w8, category: "Electrical", label: "Panel Upgrade" },
+  // Batch 2 (work-9 to work-13): Second set
+  { src: w9, category: "EV Chargers", label: "Charger Installation" },
+  { src: w10, category: "EV Chargers", label: "EV Outlet Wiring" },
+  { src: w11, category: "Battery & Solar", label: "Battery System" },
+  { src: w12, category: "Electrical", label: "Electrical Work" },
+  { src: w13, category: "Electrical", label: "Panel Work" },
+  // Batch 3 (work-14 to work-17): Third set
+  { src: w14, category: "EV Chargers", label: "Charger Install" },
+  { src: w15, category: "Battery & Solar", label: "Battery Backup" },
+  { src: w16, category: "Electrical", label: "Wiring & Circuits" },
+  { src: w17, category: "Electrical", label: "Electrical Service" },
+  // Batch 4 (work-18 to work-25): Fourth set
+  { src: w18, category: "EV Chargers", label: "Home EV Charger" },
+  { src: w19, category: "EV Chargers", label: "Level 2 Install" },
+  { src: w20, category: "Battery & Solar", label: "Solar System" },
+  { src: w21, category: "Battery & Solar", label: "Renewable Energy" },
+  { src: w22, category: "Electrical", label: "Service Upgrade" },
+  { src: w23, category: "Electrical", label: "Electrical Panel" },
+  { src: w24, category: "EV Chargers", label: "EV Charger" },
+  { src: w25, category: "Battery & Solar", label: "Battery & Solar" },
+];
+
+const categories: Category[] = ["All", "EV Chargers", "Battery & Solar", "Electrical"];
+
+function Portfolio() {
+  const [active, setActive] = useState<Category>("All");
+  const [lightbox, setLightbox] = useState<PortfolioItem | null>(null);
+
+  const filtered = active === "All" ? portfolioItems : portfolioItems.filter((p) => p.category === active);
+
   return (
-    <div className={`rounded-2xl border border-border bg-card p-4 ring-1 ${ring} sm:rounded-3xl sm:p-6 md:p-8`}>
-      <h3 className={`font-display text-xl font-bold sm:text-2xl ${accentColor}`}>{title}</h3>
-      <ul className="mt-4 space-y-2 sm:mt-6 sm:space-y-3">
-        {items.map(({ icon: Icon, name, desc }) => (
-          <li key={name} className="flex items-start gap-3 rounded-xl bg-muted/40 p-3 transition hover:bg-muted/70 sm:gap-4 sm:rounded-2xl sm:p-4">
-            <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-background sm:h-11 sm:w-11 sm:rounded-xl ${accentColor}`}>
-              <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold sm:text-base">{name}</p>
-              <p className="text-xs text-muted-foreground sm:text-sm">{desc}</p>
-            </div>
-          </li>
+    <section id="portfolio" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+      <SectionHeader eyebrow="Real client work" title="Our Work" />
+
+      {/* Filter tabs */}
+      <div className="mt-7 flex flex-wrap justify-center gap-2">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActive(cat)}
+            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
+              active === cat
+                ? "bg-accent-yellow text-black"
+                : "border border-border bg-card text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {cat}
+          </button>
         ))}
-      </ul>
-    </div>
+      </div>
+
+      {/* Grid */}
+      <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5">
+        {filtered.map((item, i) => (
+          <button
+            key={`${item.src}-${i}`}
+            onClick={() => setLightbox(item)}
+            className="group relative overflow-hidden rounded-xl aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow"
+          >
+            <img
+              src={item.src}
+              alt={item.label}
+              loading="lazy"
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/50" />
+            <div className="absolute inset-0 flex items-end justify-start p-2 opacity-0 transition duration-300 group-hover:opacity-100">
+              <span className="rounded-md bg-black/70 px-2 py-0.5 text-xs font-semibold text-white backdrop-blur-sm">
+                {item.label}
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.label}
+            className="max-h-[90vh] max-w-full rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+            <span className="rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
+              {lightbox.label}
+            </span>
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
 
-// Brand-styled wordmark logos rendered with CSS — distinctive type/colors per brand.
-const certs = [
+/* ─── CERTIFICATIONS ─────────────────────────────────────────────────────── */
+const certCards = [
   {
-    name: "Tesla Certified Installer",
     wordmark: "TESLA",
-    bg: "bg-black",
-    border: "border-red-500/40",
-    text: "text-white",
-    tracking: "tracking-[0.35em]",
-    font: "font-display font-bold",
+    bg: "bg-black", border: "border-red-500/40", text: "text-white",
+    tracking: "tracking-[0.35em]", font: "font-display font-bold",
+    name: "Tesla Certified Installer",
+    note: "Authorized to install Wall Connectors & commission Powerwalls.",
   },
   {
-    name: "Span Smart Panel Pro",
     wordmark: "SPAN",
-    bg: "bg-white",
-    border: "border-zinc-300",
-    text: "text-black",
-    tracking: "tracking-tight",
-    font: "font-display font-black",
+    bg: "bg-white", border: "border-zinc-300", text: "text-black",
+    tracking: "tracking-tight", font: "font-display font-black",
+    name: "Span Smart Panel Pro",
+    note: "Certified to install & configure Span smart home panels.",
   },
   {
-    name: "Enphase Certified",
     wordmark: "enphase.",
-    bg: "bg-white",
-    border: "border-orange-400/50",
-    text: "text-[#F3631C]",
-    tracking: "tracking-tight",
-    font: "font-display font-bold",
+    bg: "bg-white", border: "border-orange-400/50", text: "text-[#F3631C]",
+    tracking: "tracking-tight", font: "font-display font-bold",
+    name: "Enphase Certified",
+    note: "Certified installer for Enphase solar microinverters.",
   },
   {
-    name: "EG4 Certified",
     wordmark: "EG4",
-    bg: "bg-[#0A2540]",
-    border: "border-sky-400/40",
-    text: "text-white",
-    tracking: "tracking-wider",
-    font: "font-display font-black italic",
+    bg: "bg-[#0A2540]", border: "border-sky-400/40", text: "text-white",
+    tracking: "tracking-wider", font: "font-display font-black italic",
+    name: "EG4 Certified",
+    note: "Authorized for EG4 battery & off-grid system installs.",
   },
 ];
 
 function Certifications() {
   return (
-    <section id="certifications" className="border-y border-border bg-card/40 py-12 sm:py-20">
-      <div className="mx-auto max-w-6xl px-3 sm:px-4">
+    <section id="certifications" className="border-y border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
         <SectionHeader eyebrow="Trust & expertise" title="Certified & Licensed" />
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 sm:grid-cols-4">
-          {certs.map((c) => (
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 sm:grid-cols-4">
+          {certCards.map((c) => (
             <div
               key={c.name}
-              className="group flex flex-col items-center gap-3 rounded-xl border border-border bg-background p-3 text-center transition hover:border-accent-yellow/40 sm:gap-4 sm:rounded-2xl sm:p-5"
+              className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-4 text-center transition hover:border-accent-yellow/40"
             >
               <div
-                className={`flex h-16 w-full items-center justify-center rounded-lg border sm:h-20 sm:rounded-xl ${c.border} ${c.bg} px-2 shadow-inner sm:px-3`}
+                className={`flex h-16 w-full items-center justify-center rounded-xl border sm:h-20 ${c.border} ${c.bg} px-3 shadow-inner`}
               >
-                <span className={`text-lg sm:text-2xl md:text-[1.6rem] ${c.font} ${c.text} ${c.tracking}`}>
-                  {c.wordmark}
-                </span>
+                <span className={`text-xl sm:text-2xl ${c.font} ${c.text} ${c.tracking}`}>{c.wordmark}</span>
               </div>
-              <p className="text-xs font-semibold leading-tight sm:text-sm">{c.name}</p>
+              <p className="text-xs font-bold leading-tight sm:text-sm">{c.name}</p>
+              <p className="text-[0.65rem] text-muted-foreground leading-relaxed sm:text-xs">{c.note}</p>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-center text-xs text-muted-foreground sm:mt-6">
+        <p className="mt-5 text-center text-xs text-muted-foreground">
           Tesla, Span, Enphase, and EG4 are trademarks of their respective owners.
         </p>
       </div>
@@ -262,175 +572,186 @@ function Certifications() {
   );
 }
 
+/* ─── ABOUT ───────────────────────────────────────────────────────────────── */
 function AboutUs() {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-3 py-12 sm:px-4 sm:py-20">
-      <SectionHeader eyebrow="Who we are" title="About Us" />
-
-      <div className="mt-8 grid gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-5">
-        {/* Main narrative — spans 3 cols on large screens */}
-        <div className="lg:col-span-3 space-y-4 sm:space-y-6">
-          <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">
-            <span className="font-display font-bold text-accent-yellow">Electrical &amp; Renewable Services</span> is
-            a residential electrical and renewable energy company proudly built on
-            <span className="font-semibold text-accent-green"> over 12&nbsp;years of hands-on experience</span>.
-            What started as a commitment to honest, code-compliant workmanship has
-            grown into a trusted local business homeowners turn to for
-            everything from panel upgrades and troubleshooting to full-scale
-            solar, battery backup, and EV&nbsp;charger installations.
-          </p>
-          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-            We specialize in the intersection of traditional electrical work and
-            modern renewable energy — bringing technical precision, strict
-            adherence to the National Electrical Code, and manufacturer-certified
-            installation practices to every project. Whether we're wiring a new
-            circuit or commissioning a Tesla Powerwall, every connection is
-            tested, every panel is labeled, and every system is built to last.
-          </p>
-          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Our approach is simple: treat every home like our own. That means
-            transparent pricing with no hidden fees, same-day or next-day
-            response times, and a genuine focus on long-term system reliability
-            rather than quick fixes. We take the time to walk homeowners through
-            their options, explain the work clearly, and ensure everything is
-            permitted and inspected to the highest standards.
-          </p>
-          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-            As a family-owned, locally operated company based in Baytown, TX, we
-            believe that trust is earned on every job site. Our growing list of
-            five-star Google reviews speaks to the relationships we've built —
-            and we're committed to keeping that standard with every customer we
-            serve.
-          </p>
+    <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+      <div className="grid gap-10 lg:grid-cols-5 lg:gap-16 items-center">
+        {/* Photo */}
+        <div className="lg:col-span-2">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl aspect-[4/5]">
+            <img
+              src={aboutUsImg}
+              alt="Christian — Owner, Electrical & Renewable Services"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <p className="font-display text-lg font-bold text-white">Christian</p>
+              <p className="text-sm text-white/70">Owner & Master Electrician</p>
+            </div>
+          </div>
         </div>
 
-        {/* Quick-stat cards — right column */}
-        <div className="lg:col-span-2 grid grid-cols-2 gap-3 content-start sm:gap-4">
-          {[
-            { icon: Clock, value: "12+", label: "Years of Experience", accent: "yellow" as const },
-            { icon: Users, value: "500+", label: "Happy Homeowners", accent: "green" as const },
-            { icon: Award, value: "4", label: "Manufacturer Certs", accent: "yellow" as const },
-            { icon: Heart, value: "5.0 ★", label: "Google Rating", accent: "green" as const },
-          ].map((s) => (
-            <div
-              key={s.label}
-              className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card p-4 text-center transition hover:border-accent-yellow/40 sm:gap-2 sm:rounded-2xl sm:p-5"
-            >
+        {/* Text */}
+        <div className="lg:col-span-3 space-y-5">
+          <div>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
+              Who we are
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl">
+              Built on 12+ Years of<br /><span className="text-accent-yellow">Honest Work</span>
+            </h2>
+          </div>
+
+          <p className="text-base leading-relaxed text-foreground/90">
+            <span className="font-display font-bold text-accent-yellow">Electrical & Renewable Services</span> is
+            a Baytown-based electrical company founded by Christian — a master electrician with over 12 years of hands-on experience.
+            What started as a commitment to honest, code-compliant workmanship has grown into one of the Houston area's go-to shops
+            for EV charger installs, battery backup systems, and solar.
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Every install is permitted, inspected, and built to last. We take the time to walk you through your options,
+            explain the work clearly, and make sure every system is commissioned correctly — no shortcuts, no surprises.
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            As a family-owned, locally operated company, we believe trust is earned on every job site.
+            Our 5-star Google reviews speak to the relationships we've built — and we're committed to keeping that standard.
+          </p>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
+            {[
+              { icon: Clock, value: "12+", label: "Years Experience", accent: "yellow" as const },
+              { icon: Users, value: "500+", label: "Happy Customers", accent: "green" as const },
+              { icon: Award, value: "4", label: "Manufacturer Certs", accent: "yellow" as const },
+              { icon: Heart, value: "5.0 ★", label: "Google Rating", accent: "green" as const },
+            ].map((s) => (
               <div
-                className={`grid h-9 w-9 place-items-center rounded-lg sm:h-11 sm:w-11 sm:rounded-xl ${
-                  s.accent === "yellow"
-                    ? "bg-accent-yellow/15 text-accent-yellow"
-                    : "bg-accent-green/15 text-accent-green"
-                }`}
+                key={s.label}
+                className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card p-3 text-center"
               >
-                <s.icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                <div className={`grid h-8 w-8 place-items-center rounded-lg ${s.accent === "yellow" ? "bg-accent-yellow/15 text-accent-yellow" : "bg-accent-green/15 text-accent-green"}`}>
+                  <s.icon className="h-4 w-4" />
+                </div>
+                <span className={`font-display text-lg font-black ${s.accent === "yellow" ? "text-accent-yellow" : "text-accent-green"}`}>{s.value}</span>
+                <span className="text-[0.6rem] font-medium leading-tight text-muted-foreground">{s.label}</span>
               </div>
-              <span
-                className={`font-display text-xl font-black sm:text-2xl ${
-                  s.accent === "yellow" ? "text-accent-yellow" : "text-accent-green"
-                }`}
-              >
-                {s.value}
-              </span>
-              <span className="text-[0.65rem] font-medium leading-tight text-muted-foreground sm:text-xs">{s.label}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
+/* ─── TESTIMONIALS ────────────────────────────────────────────────────────── */
 const testimonials = [
   {
     name: "Homero Salinas",
     meta: "Local Guide · 36 reviews",
     when: "2 months ago",
     text: "My electrical box went out and a friend recommended Electrical & Renewable Services. Showed up on the same day and replaced my entire electrical box on the day it went out.",
+    service: "Panel Replacement",
+  },
+  {
+    name: "Jesus Tapiador",
+    meta: "9 reviews",
+    when: "a week ago",
+    text: "Skilled electrician! Installed my new Tesla charger and had to move some breakers around. He understands Powerwall and Tesla Solar — certified under those programs, so he was able to plug my charger to the gateway for bidirectional charging. Thanks Cristian!",
+    service: "Tesla EV Charger",
   },
   {
     name: "Tunde A.",
     meta: "Local Guide · 20 reviews",
     when: "a week ago",
     text: "Christian did an excellent job installing our outdoor porch lights. They came out really nice and I couldn't be happier. He's very professional and diligent — I highly recommend his services!",
+    service: "Outdoor Lighting",
   },
   {
     name: "Cheryl Krebs",
     meta: "4 reviews",
     when: "a week ago",
     text: "Christian is smart and friendly. My house has special low-voltage wiring and he was the only electrician I talked with who knew the specifics of it. He is my go-to guy for electrical!",
-  },
-  {
-    name: "Jesus Tapiador",
-    meta: "9 reviews",
-    when: "a week ago",
-    text: "Skilled electrician! Installed my new Tesla charger and had to move some breakers around. What I'm most pleased about is that he understands Powerwall and Tesla Solar as well — certified under those programs, so he was able to plug my charger to the gateway for bidirectional charging. Thanks Cristian!",
+    service: "Electrical Service",
   },
   {
     name: "Peter Baham",
     meta: "1 review",
     when: "3 weeks ago",
     text: "Great company, super knowledgeable and professional. Installed our charging station and it came out great!",
+    service: "EV Charger Install",
   },
   {
     name: "Paige Hall",
     meta: "Local Guide · 22 reviews",
     when: "3 weeks ago",
-    text: "Christian did an amazing job for a great deal — only hiring him to do our electrical work from now on. He came fast the next day and was very easy to work with, even helped explain electrical problems I was having and solved some issues in my home. Excellent customer service and attitude, down to earth, and punctual. I found my go-to guy for all my electrical needs.",
+    text: "Christian did an amazing job for a great deal — only hiring him to do our electrical work from now on. He came fast the next day and was very easy to work with. Excellent customer service, down to earth, and punctual. I found my go-to guy for all my electrical needs.",
+    service: "General Electrical",
   },
 ];
 
 function Testimonials() {
   return (
-    <section id="reviews" className="mx-auto max-w-6xl px-3 py-12 sm:px-4 sm:py-20">
-      <SectionHeader eyebrow="What customers say" title="5-Star Google Reviews" />
-      <div className="mt-4 flex items-center justify-center gap-1.5 text-accent-yellow sm:mt-6 sm:gap-2">
-        {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current sm:h-5 sm:w-5" />)}
-        <span className="ml-1.5 text-xs font-semibold text-foreground sm:ml-2 sm:text-sm">Rated 5.0 on Google</span>
-      </div>
-      <div className="mt-6 grid gap-4 sm:mt-10 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((t) => (
-          <article key={t.name} className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-4 sm:rounded-3xl sm:p-6">
-            <Quote className="absolute right-4 top-4 h-6 w-6 text-accent-yellow/20 sm:right-5 sm:top-5 sm:h-8 sm:w-8" />
-            <div className="flex items-center gap-1 text-accent-yellow">
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current sm:h-4 sm:w-4" />)}
-            </div>
-            <p className="mt-3 flex-1 text-xs leading-relaxed text-foreground/90 sm:mt-4 sm:text-sm">"{t.text}"</p>
-            <div className="mt-4 flex items-center gap-3 border-t border-border pt-3 sm:mt-5 sm:pt-4">
-              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent-green/20 text-sm font-display font-bold text-accent-green sm:h-10 sm:w-10">
-                {t.name.charAt(0)}
+    <section id="reviews" className="border-t border-border bg-card/20">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <SectionHeader eyebrow="What customers say" title="5-Star Google Reviews" />
+        <div className="mt-5 flex items-center justify-center gap-1.5 text-accent-yellow sm:mt-6">
+          {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current sm:h-5 sm:w-5" />)}
+          <span className="ml-2 text-xs font-semibold text-foreground sm:text-sm">Rated 5.0 on Google</span>
+        </div>
+        <div className="mt-8 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <article
+              key={t.name}
+              className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-5 sm:rounded-3xl sm:p-6"
+            >
+              <Quote className="absolute right-4 top-4 h-7 w-7 text-accent-yellow/15" />
+              {/* Service tag */}
+              <span className="mb-3 inline-flex w-fit items-center rounded-full bg-accent-yellow/10 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-accent-yellow">
+                {t.service}
+              </span>
+              <div className="flex items-center gap-1 text-accent-yellow">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
               </div>
-              <div className="min-w-0">
-                <p className="truncate text-xs font-semibold sm:text-sm">{t.name}</p>
-                <p className="truncate text-[0.65rem] text-muted-foreground sm:text-xs">{t.meta} · {t.when}</p>
+              <p className="mt-3 flex-1 text-xs leading-relaxed text-foreground/90 sm:text-sm">"{t.text}"</p>
+              <div className="mt-4 flex items-center gap-3 border-t border-border pt-3 sm:mt-5 sm:pt-4">
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent-green/20 font-display text-sm font-bold text-accent-green">
+                  {t.name.charAt(0)}
+                </div>
+                <div className="min-w-0">
+                  <p className="truncate text-xs font-semibold sm:text-sm">{t.name}</p>
+                  <p className="truncate text-[0.65rem] text-muted-foreground">{t.meta} · {t.when}</p>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
+/* ─── WHY US ──────────────────────────────────────────────────────────────── */
 const reasons = [
-  { icon: ShieldCheck, title: "Licensed & Insured", desc: "Fully licensed master electricians with comprehensive insurance for every job." },
-  { icon: MapPinned, title: "Local & Family-Owned", desc: "Proudly serving our community with same-day quotes and fast response times." },
-  { icon: Wrench, title: "Reliable Workmanship", desc: "Manufacturer-certified installs backed by warranty and honest pricing." },
+  { icon: ShieldCheck, title: "Licensed & Insured", desc: "Fully licensed master electricians with comprehensive insurance on every job." },
+  { icon: MapPinned, title: "Local & Family-Owned", desc: "Proudly serving the Houston area with same-day quotes and fast turnaround." },
+  { icon: Wrench, title: "Certified Installs", desc: "Manufacturer-certified installs backed by warranty and honest, transparent pricing." },
 ];
 
 function WhyUs() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-3 py-12 sm:px-4 sm:py-20">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
         <SectionHeader eyebrow="Why choose us" title="Power you can trust" />
-        <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:gap-5 md:grid-cols-3">
           {reasons.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border border-border bg-card p-5 sm:rounded-3xl sm:p-7">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-yellow text-black sm:h-12 sm:w-12 sm:rounded-2xl">
-                <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+            <div key={title} className="rounded-2xl border border-border bg-card p-6 sm:rounded-3xl sm:p-8">
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-yellow text-black">
+                <Icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-4 text-lg font-bold sm:mt-5 sm:text-xl">{title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground sm:mt-2 sm:text-base">{desc}</p>
+              <h3 className="mt-5 font-display text-lg font-bold sm:text-xl">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
             </div>
           ))}
         </div>
@@ -439,40 +760,44 @@ function WhyUs() {
   );
 }
 
+/* ─── CONTACT ─────────────────────────────────────────────────────────────── */
 function Contact() {
   const [sent, setSent] = useState(false);
   return (
-    <section id="contact" className="border-t border-border bg-card/30 py-12 sm:py-20">
-      <div className="mx-auto max-w-6xl px-3 sm:px-4">
+    <section id="contact" className="border-t border-border py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4">
         <SectionHeader eyebrow="Get in touch" title="Request a Free Quote" />
-        <div className="mt-8 grid gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-2">
-          <div className="space-y-3 sm:space-y-4">
+        <div className="mt-10 grid gap-8 lg:grid-cols-2">
+          {/* Contact info */}
+          <div className="space-y-4">
             <ContactRow icon={Phone} label="Call us" value={PHONE_DISPLAY} href={`tel:${PHONE_TEL}`} accent="yellow" />
             <ContactRow icon={Mail} label="Email" value={EMAIL} href={`mailto:${EMAIL}`} accent="green" />
             <ContactRow icon={MapPin} label="Service area" value={ADDRESS} accent="yellow" />
             <a
               href={`tel:${PHONE_TEL}`}
-              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-yellow px-5 py-3.5 text-sm font-bold text-black transition hover:brightness-110 sm:w-auto sm:rounded-2xl sm:px-6 sm:py-4 sm:text-base"
+              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-yellow px-6 py-4 text-sm font-bold text-black transition hover:brightness-110 sm:w-auto sm:rounded-2xl sm:text-base"
             >
-              <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Tap to Call Now
+              <Phone className="h-5 w-5" /> Tap to Call Christian Now
             </a>
+            <p className="text-xs text-muted-foreground pt-1">Most installs quoted within 24 hours. Same-day calls welcome.</p>
           </div>
 
+          {/* Form */}
           <form
             onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="rounded-2xl border border-border bg-background p-4 sm:rounded-3xl sm:p-6 md:p-8"
+            className="rounded-2xl border border-border bg-card p-5 sm:rounded-3xl sm:p-8"
           >
             {sent ? (
-              <div className="flex flex-col items-center gap-3 py-8 text-center sm:py-10">
-                <CheckCircle2 className="h-10 w-10 text-accent-green sm:h-12 sm:w-12" />
-                <h3 className="text-xl font-bold sm:text-2xl">Thanks!</h3>
-                <p className="text-sm text-muted-foreground sm:text-base">We'll be in touch within one business day.</p>
+              <div className="flex flex-col items-center gap-3 py-10 text-center">
+                <CheckCircle2 className="h-12 w-12 text-accent-green" />
+                <h3 className="font-display text-2xl font-bold">Thanks!</h3>
+                <p className="text-sm text-muted-foreground">Christian will be in touch within one business day.</p>
               </div>
             ) : (
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-4">
                 <Field label="Name"><input required type="text" className={inputCls} placeholder="Jane Smith" /></Field>
                 <Field label="Phone"><input required type="tel" className={inputCls} placeholder="(555) 123-4567" /></Field>
-                <Field label="Service">
+                <Field label="Service needed">
                   <select required className={inputCls} defaultValue="">
                     <option value="" disabled>Select a service…</option>
                     <option>EV Charger Install</option>
@@ -486,8 +811,13 @@ function Contact() {
                     <option>Other</option>
                   </select>
                 </Field>
-                <Field label="Message"><textarea rows={4} className={inputCls} placeholder="Tell us about your project…" /></Field>
-                <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-green px-6 py-3 text-sm font-bold text-black transition hover:brightness-110 sm:py-3.5 sm:text-base">
+                <Field label="Message (optional)">
+                  <textarea rows={3} className={inputCls} placeholder="Tell us about your project…" />
+                </Field>
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-green px-6 py-3.5 text-sm font-bold text-black transition hover:brightness-110 sm:text-base"
+                >
                   Send Request <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -499,6 +829,30 @@ function Contact() {
   );
 }
 
+/* ─── FOOTER ──────────────────────────────────────────────────────────────── */
+function Footer() {
+  return (
+    <footer className="border-t border-border py-10">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="flex items-center gap-2.5">
+            <img src={logo} alt="" className="h-9 w-9" width={36} height={36} />
+            <div>
+              <p className="font-display text-sm font-bold">Electrical & Renewable Services LLC</p>
+              <p className="text-xs text-muted-foreground">Baytown, TX · Houston Area</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-1 sm:items-end">
+            <a href={`tel:${PHONE_TEL}`} className="text-sm font-semibold text-accent-yellow hover:brightness-110">{PHONE_DISPLAY}</a>
+            <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ─── SHARED UTILS ────────────────────────────────────────────────────────── */
 const inputCls =
   "w-full rounded-xl border border-border bg-muted/40 px-4 py-3 text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-accent-yellow focus:bg-muted";
 
@@ -513,17 +867,20 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function ContactRow({
   icon: Icon, label, value, href, accent,
-}: { icon: any; label: string; value: string; href?: string; accent: "yellow" | "green" }) {
+}: { icon: React.ElementType; label: string; value: string; href?: string; accent: "yellow" | "green" }) {
   const color = accent === "yellow" ? "text-accent-yellow" : "text-accent-green";
-  const Wrap: any = href ? "a" : "div";
+  const Wrap = href ? "a" : "div";
   return (
-    <Wrap href={href} className="flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-background p-3.5 transition hover:border-border/80 sm:gap-4 sm:rounded-2xl sm:p-5">
-      <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-muted sm:h-12 sm:w-12 sm:rounded-xl ${color}`}>
-        <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+    <Wrap
+      {...(href ? { href } : {})}
+      className="flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-card p-4 transition hover:border-border/80 sm:gap-4 sm:rounded-2xl"
+    >
+      <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-muted sm:h-12 sm:w-12 ${color}`}>
+        <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0 overflow-hidden">
-        <p className="text-[0.65rem] uppercase tracking-wider text-muted-foreground sm:text-xs">{label}</p>
-        <p className="break-all text-xs font-semibold sm:truncate sm:break-normal sm:text-base">{value}</p>
+        <p className="text-[0.65rem] uppercase tracking-wider text-muted-foreground">{label}</p>
+        <p className="break-all text-xs font-semibold sm:truncate sm:break-normal sm:text-sm">{value}</p>
       </div>
     </Wrap>
   );
@@ -532,23 +889,10 @@ function ContactRow({
 function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="flex flex-col items-center text-center">
-      <span className="rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-accent-yellow sm:px-3 sm:py-1 sm:text-xs">
+      <span className="rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-accent-yellow sm:text-xs">
         {eyebrow}
       </span>
       <h2 className="mt-3 font-display text-2xl font-black sm:mt-4 sm:text-3xl md:text-5xl">{title}</h2>
     </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-border py-8 sm:py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-3 text-center sm:gap-3 sm:px-4">
-        <img src={logo} alt="" className="h-8 w-8 sm:h-10 sm:w-10" width={40} height={40} />
-        <p className="text-xs text-muted-foreground sm:text-sm">
-          © {new Date().getFullYear()} Electrical & Renewable Services LLC. All rights reserved.
-        </p>
-      </div>
-    </footer>
   );
 }

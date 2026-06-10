@@ -15,7 +15,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-BLCGv-z_.css";
+const appCss = "/assets/styles-BDoccT_5.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -114,20 +114,20 @@ function RootComponent() {
   const { queryClient } = Route$1.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter = () => import("./index-BGR13sxU.mjs");
+const $$splitComponentImporter = () => import("./index-DzYNmzud.mjs");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{
-      title: "Electrical & Renewable Services LLC — EV Chargers, Battery Backup & Solar"
+      title: "Electrical & Renewable Services LLC — EV Charger Installers in Baytown TX"
     }, {
       name: "description",
-      content: "Licensed electricians specializing in EV chargers, battery backup, solar, and general electrical services. Tesla, Span, Enphase & EG4 certified."
+      content: "Houston-area EV charger specialists. Tesla-certified Level 2 home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964."
     }, {
       property: "og:title",
-      content: "Electrical & Renewable Services LLC"
+      content: "Electrical & Renewable Services LLC — EV Charger Specialists"
     }, {
       property: "og:description",
-      content: "EV Chargers • Battery Backup • Solar — Licensed & Certified Local Electricians."
+      content: "Tesla-certified EV charger installs, battery backup & solar. Baytown TX. Call (832) 868-2964."
     }]
   }),
   component: lazyRouteComponent($$splitComponentImporter, "component")
