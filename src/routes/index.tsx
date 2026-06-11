@@ -54,7 +54,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Houston-area EV charger specialists. Tesla-certified Level 2 home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964.",
+          "Houston-area EV charger specialists. Tesla-certified home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964.",
       },
       { property: "og:title", content: "Electrical & Renewable Services LLC — EV Charger Specialists" },
       {
@@ -154,7 +154,7 @@ function Hero() {
           </h1>
 
           <p className="mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg">
-            Tesla-certified Level 2 home charger installations in the greater Houston area.
+            Tesla-certified home charger installations in the greater Houston area.
             Also serving battery backup, solar & general electrical needs.
           </p>
 
@@ -248,7 +248,7 @@ function EVSection() {
           EV Charger Installation
         </h2>
         <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
-          We specialize in Level 2 home EV charger installs — the kind that charge your car overnight,
+          We specialize in home EV charger installs — the kind that charge your car overnight,
           not over two days. Tesla-certified and Baytown-based, we've done hundreds of installs across the greater Houston area.
         </p>
       </div>
@@ -320,7 +320,7 @@ function EVPricingCTA() {
           Power up at home
         </h2>
         <p className="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
-          Our licensed master electrician will install a Level 2 fast charger for any
+          Our licensed electricians will install a fast charger for any
           electric vehicle at your home —{" "}
           <span className="font-bold text-white underline decoration-accent-yellow decoration-2 underline-offset-4">
             starting at $895
@@ -339,6 +339,9 @@ function EVPricingCTA() {
 
         <p className="mt-5 text-xs text-white/50">
           Permit filing included · Tesla, ChargePoint, JuiceBox & more · Baytown TX & Houston area
+        </p>
+        <p className="mt-2 text-xs text-white/40">
+          *Price applies to installations within 10 ft of the electrical panel.
         </p>
       </div>
     </section>
@@ -696,7 +699,7 @@ function AboutUs() {
 
           <p className="text-base leading-relaxed text-foreground/90">
             <span className="font-display font-bold text-accent-yellow">Electrical & Renewable Services</span> is
-            a Baytown-based electrical company founded by Christian — a master electrician with over 12 years of hands-on experience.
+            a Baytown-based electrical company built on over 12 years of electrical expertise, honest workmanship, and code-compliant installations.
             What started as a commitment to honest, code-compliant workmanship has grown into one of the Houston area's go-to shops
             for EV charger installs, battery backup systems, and solar.
           </p>
