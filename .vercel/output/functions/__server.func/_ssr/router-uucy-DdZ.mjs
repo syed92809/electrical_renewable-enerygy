@@ -15,7 +15,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-rWI_GK8f.css";
+const appCss = "/assets/styles-B7zjnOZ-.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -114,14 +114,14 @@ function RootComponent() {
   const { queryClient } = Route$1.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter = () => import("./index-Bd_D_Ed1.mjs");
+const $$splitComponentImporter = () => import("./index-CUCnR9yZ.mjs");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{
       title: "Electrical & Renewable Services LLC — EV Charger Installers in Baytown TX"
     }, {
       name: "description",
-      content: "Houston-area EV charger specialists. Tesla-certified Level 2 home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964."
+      content: "Houston-area EV charger specialists. Tesla-certified home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964."
     }, {
       property: "og:title",
       content: "Electrical & Renewable Services LLC — EV Charger Specialists"

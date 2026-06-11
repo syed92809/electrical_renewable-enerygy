@@ -91,7 +91,7 @@ function Hero() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "Done Right." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg", children: "Tesla-certified Level 2 home charger installations in the greater Houston area. Also serving battery backup, solar & general electrical needs." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg", children: "Tesla-certified home charger installations in the greater Houston area. Also serving battery backup, solar & general electrical needs." }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "inline-flex items-center justify-center gap-2 rounded-full bg-accent-yellow px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-accent-yellow/25 transition hover:brightness-110 sm:px-8 sm:py-4 sm:text-base", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4 sm:h-5 sm:w-5" }),
@@ -183,7 +183,7 @@ function EVSection() {
         " Our Specialty"
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl font-black sm:text-4xl md:text-5xl", children: "EV Charger Installation" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base", children: "We specialize in Level 2 home EV charger installs — the kind that charge your car overnight, not over two days. Tesla-certified and Baytown-based, we've done hundreds of installs across the greater Houston area." })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base", children: "We specialize in home EV charger installs — the kind that charge your car overnight, not over two days. Tesla-certified and Baytown-based, we've done hundreds of installs across the greater Houston area." })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-10 grid grid-cols-3 gap-2 sm:gap-4", children: evPhotos.map((src, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden rounded-xl sm:rounded-2xl aspect-[4/3]", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src, alt: `EV charger install ${i + 1}`, loading: "lazy", className: "h-full w-full object-cover transition duration-500 hover:scale-105" }),
@@ -219,7 +219,7 @@ function EVPricingCTA() {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-lg px-6 py-20 text-center sm:py-28", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-4xl font-black text-white sm:text-5xl md:text-6xl", children: "Power up at home" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-5 text-base leading-relaxed text-white/80 sm:text-lg", children: [
-        "Our licensed master electrician will install a Level 2 fast charger for any electric vehicle at your home —",
+        "Our licensed electricians will install a fast charger for any electric vehicle at your home —",
         " ",
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-white underline decoration-accent-yellow decoration-2 underline-offset-4", children: "starting at $895" }),
         "."
@@ -228,7 +228,8 @@ function EVPricingCTA() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-5 w-5" }),
         " Call Us Now"
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-xs text-white/50", children: "Permit filing included · Tesla, ChargePoint, JuiceBox & more · Baytown TX & Houston area" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-xs text-white/50", children: "Permit filing included · Tesla, ChargePoint, JuiceBox & more · Baytown TX & Houston area" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-xs text-white/40", children: "*Price applies to installations within 10 ft of the electrical panel." })
     ] })
   ] });
 }
@@ -512,7 +513,7 @@ function AboutUs() {
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-base leading-relaxed text-foreground/90", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-accent-yellow", children: "Electrical & Renewable Services" }),
-        " is a Baytown-based electrical company founded by Christian — a master electrician with over 12 years of hands-on experience. What started as a commitment to honest, code-compliant workmanship has grown into one of the Houston area's go-to shops for EV charger installs, battery backup systems, and solar."
+        " is a Baytown-based electrical company built on over 12 years of electrical expertise, honest workmanship, and code-compliant installations. What started as a commitment to honest, code-compliant workmanship has grown into one of the Houston area's go-to shops for EV charger installs, battery backup systems, and solar."
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm leading-relaxed text-muted-foreground", children: "Every install is permitted, inspected, and built to last. We take the time to walk you through your options, explain the work clearly, and make sure every system is commissioned correctly — no shortcuts, no surprises." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm leading-relaxed text-muted-foreground", children: "As a family-owned, locally operated company, we believe trust is earned on every job site. Our 5-star Google reviews speak to the relationships we've built — and we're committed to keeping that standard." }),
@@ -657,10 +658,10 @@ function FinancingBanner() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-1.5 w-1.5 rounded-full bg-accent-yellow" }),
       item
     ] }, item)) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-sm text-muted-foreground sm:text-base", children: "Don't let upfront costs hold you back from a smarter home. Ask Christian about financing options when you call." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-sm text-muted-foreground sm:text-base", children: "Don't let upfront costs hold you back from a smarter home." }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "mt-6 inline-flex items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black shadow-lg shadow-accent-yellow/20 transition hover:brightness-110 sm:px-8 sm:py-3.5 sm:text-base", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4 sm:h-5 sm:w-5" }),
-      " Call to Ask About Financing"
+      " Call us now"
     ] })
   ] }) }) });
 }
