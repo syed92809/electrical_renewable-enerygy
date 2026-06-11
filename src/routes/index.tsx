@@ -80,6 +80,7 @@ function Home() {
       <AboutUs />
       <Testimonials />
       <WhyUs />
+      <FinancingBanner />
       <Contact />
       <Footer />
     </div>
@@ -843,6 +844,56 @@ function WhyUs() {
               <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── FINANCING BANNER ───────────────────────────────────────────────────── */
+function FinancingBanner() {
+  return (
+    <section className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-accent-yellow/30 bg-gradient-to-br from-accent-yellow/10 via-card to-card px-6 py-10 text-center sm:px-10 sm:py-14">
+          {/* Decorative glow */}
+          <div className="pointer-events-none absolute -top-20 left-1/2 h-48 w-96 -translate-x-1/2 rounded-full bg-accent-yellow/10 blur-3xl" />
+
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
+            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+            Flexible Payment Options
+          </span>
+
+          <h2 className="mt-4 font-display text-2xl font-black sm:text-3xl md:text-4xl">
+            Financing Available for{" "}
+            <span className="text-accent-yellow">Qualified Customers</span>
+          </h2>
+
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            {["EV Chargers", "Panel Upgrades", "Service Upgrades", "Backup Power Systems"].map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-semibold text-foreground sm:text-sm"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-yellow" />
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <p className="mt-5 text-sm text-muted-foreground sm:text-base">
+            Don't let upfront costs hold you back from a smarter home.
+          </p>
+
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black shadow-lg shadow-accent-yellow/20 transition hover:brightness-110 sm:px-8 sm:py-3.5 sm:text-base"
+          >
+            <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call us now
+          </a>
         </div>
       </div>
     </section>

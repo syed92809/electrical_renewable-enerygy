@@ -15,7 +15,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-Df71cEZX.css";
+const appCss = "/assets/styles-rWI_GK8f.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -114,7 +114,7 @@ function RootComponent() {
   const { queryClient } = Route$1.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter = () => import("./index-rS7CFwv3.mjs");
+const $$splitComponentImporter = () => import("./index-Bd_D_Ed1.mjs");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{

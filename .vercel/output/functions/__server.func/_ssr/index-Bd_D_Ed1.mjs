@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { P as Phone, a as PlugZap, A as ArrowRight, S as ShieldCheck, Z as Zap, W as Wrench, B as Battery, b as Sun, C as ChevronRight, L as Lightbulb, c as Plug, F as Fan, T as Tv, d as ChevronLeft, X, e as Clock, U as Users, f as Award, H as Heart, g as Star, Q as Quote, M as MapPinned, h as Mail, i as MapPin, j as CircleCheck } from "../_libs/lucide-react.mjs";
-const logo = "/assets/logo2-Cb2wBZ52.png";
+const logo = "/assets/logo-aHZpHL0g.png";
 const heroEv = "/assets/hero-ev-Da36mqbP.jpg";
 const solarImg = "/assets/solar-VqQWAgbl.jpg";
 const batteryImg = "/assets/battery-DHIgjDD6.jpg";
@@ -47,6 +47,7 @@ function Home() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(AboutUs, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Testimonials, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(WhyUs, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(FinancingBanner, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
@@ -636,6 +637,32 @@ function WhyUs() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: desc })
     ] }, title)) })
   ] }) });
+}
+function FinancingBanner() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "border-t border-border bg-card/30", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-6xl px-4 py-12 sm:py-16", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden rounded-2xl sm:rounded-3xl border border-accent-yellow/30 bg-gradient-to-br from-accent-yellow/10 via-card to-card px-6 py-10 text-center sm:px-10 sm:py-14", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute -top-20 left-1/2 h-48 w-96 -translate-x-1/2 rounded-full bg-accent-yellow/10 blur-3xl" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-2 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className: "h-3.5 w-3.5", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "2", y: "5", width: "20", height: "14", rx: "2" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("line", { x1: "2", y1: "10", x2: "22", y2: "10" })
+      ] }),
+      "Flexible Payment Options"
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "mt-4 font-display text-2xl font-black sm:text-3xl md:text-4xl", children: [
+      "Financing Available for",
+      " ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "Qualified Customers" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3", children: ["EV Chargers", "Panel Upgrades", "Service Upgrades", "Backup Power Systems"].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-semibold text-foreground sm:text-sm", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-1.5 w-1.5 rounded-full bg-accent-yellow" }),
+      item
+    ] }, item)) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 text-sm text-muted-foreground sm:text-base", children: "Don't let upfront costs hold you back from a smarter home. Ask Christian about financing options when you call." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "mt-6 inline-flex items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black shadow-lg shadow-accent-yellow/20 transition hover:brightness-110 sm:px-8 sm:py-3.5 sm:text-base", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4 sm:h-5 sm:w-5" }),
+      " Call to Ask About Financing"
+    ] })
+  ] }) }) });
 }
 function Contact() {
   const [sent, setSent] = reactExports.useState(false);
