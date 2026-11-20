@@ -5,7 +5,7 @@ import {
   Phone, Mail, MapPin, Zap, Battery, Sun, Lightbulb, Plug,
   Fan, Tv, PlugZap, ShieldCheck, MapPinned, Wrench, CheckCircle2,
   ArrowRight, Star, Quote, Users, Clock, Award, Heart, ChevronRight,
-  ChevronLeft, X,
+  ChevronLeft, X, Home as HomeIcon,
 } from "lucide-react";
 
 import logo from "@/assets/logo.png";
@@ -14,6 +14,7 @@ import solarImg from "@/assets/solar.jpg";
 import batteryImg from "@/assets/battery.jpg";
 import electricalImg from "@/assets/electrical.jpg";
 import aboutUsImg from "@/assets/about-uss.png";
+import generatorImg from "@/assets/generator-install.jpg";
 
 // Portfolio images
 import w1 from "@/assets/portfolio/work-1.jpeg";
@@ -50,16 +51,16 @@ const ADDRESS = "Baytown TX, 77523, United States";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Electrical & Renewable Services LLC — EV Charger Installers in Baytown TX" },
+      { title: "Electrical & Renewable Services LLC — Baytown TX | Solar, Battery, Generators & More" },
       {
         name: "description",
         content:
-          "Houston-area EV charger specialists. Tesla-certified home installs, battery backup, solar & general electrical. Licensed & insured. Call (832) 868-2964.",
+          "Licensed electricians in Baytown TX. Residential electrical, solar installation, battery storage, EV chargers, whole-home generators & solar roofing. Call (832) 868-2964.",
       },
-      { property: "og:title", content: "Electrical & Renewable Services LLC — EV Charger Specialists" },
+      { property: "og:title", content: "Electrical & Renewable Services LLC — Power Your Home, Protect Your Investment" },
       {
         property: "og:description",
-        content: "Tesla-certified EV charger installs, battery backup & solar. Baytown TX. Call (832) 868-2964.",
+        content: "Residential electrical, solar, battery storage, EV chargers, generators & solar roofing. Baytown TX & Houston area. Call (832) 868-2964.",
       },
     ],
   }),
@@ -72,8 +73,11 @@ function Home() {
       <Nav />
       <Hero />
       <TrustBar />
+      <HomepageServiceCards />
       <EVSection />
       <EVPricingCTA />
+      <GeneratorSection />
+      <SolarRoofingSection />
       <Services />
       <Portfolio />
       <Certifications />
@@ -99,10 +103,13 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-          <a href="#ev-chargers" className="hover:text-accent-yellow transition-colors">EV Chargers</a>
-          <a href="#services" className="hover:text-foreground transition-colors">Services</a>
-          <a href="#portfolio" className="hover:text-foreground transition-colors">Our Work</a>
-          <a href="#about" className="hover:text-foreground transition-colors">About</a>
+          <a href="#top" className="hover:text-foreground transition-colors">Home</a>
+          <a href="#electrical" className="hover:text-accent-yellow transition-colors">Electrical</a>
+          <a href="#services" className="hover:text-foreground transition-colors">Solar</a>
+          <a href="#services" className="hover:text-foreground transition-colors">Battery</a>
+          <a href="#ev-chargers" className="hover:text-foreground transition-colors">EV Chargers</a>
+          <a href="#solar-roofing" className="hover:text-accent-yellow transition-colors">Solar Roofing</a>
+          <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
         </nav>
         <a
           href={`tel:${PHONE_TEL}`}
@@ -137,7 +144,7 @@ function Hero() {
         <div className="flex flex-col items-center text-center">
           {/* Badge */}
           <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
-            <PlugZap className="h-3.5 w-3.5" /> Houston's EV Charger Specialists
+            <Zap className="h-3.5 w-3.5" /> Electrical & Renewable Services
           </span>
 
           <img
@@ -149,13 +156,12 @@ function Hero() {
           />
 
           <h1 className="mt-5 font-display text-3xl font-black leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            EV Charger Installs<br />
-            <span className="text-accent-yellow">Done Right.</span>
+            Power Your Home.<br />
+            <span className="text-accent-yellow">Protect Your Investment.</span>
           </h1>
 
           <p className="mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg">
-            Tesla-certified home charger installations in the greater Houston area.
-            Also serving battery backup, solar & general electrical needs.
+            Residential electrical, solar, battery storage, EV chargers, and solar roofing solutions.
           </p>
 
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
@@ -169,7 +175,7 @@ function Hero() {
               href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-accent-green/40 bg-accent-green/10 px-6 py-3.5 text-sm font-bold text-accent-green transition hover:bg-accent-green/20 sm:px-8 sm:py-4 sm:text-base"
             >
-              Free Quote <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+              Get a Free Estimate <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
           </div>
 
@@ -225,6 +231,67 @@ function TrustBar() {
   );
 }
 
+/* ─── HOMEPAGE SERVICE CARDS ─────────────────────────────────────────────── */
+function HomepageServiceCards() {
+  const cards = [
+    {
+      emoji: "⚡",
+      title: "Electrical",
+      desc: "Panel upgrades, generators & electrical services",
+      href: "#electrical",
+      accent: "yellow" as const,
+    },
+    {
+      emoji: "☀️",
+      title: "Solar",
+      desc: "Solar panel systems designed for your home",
+      href: "#services",
+      accent: "green" as const,
+    },
+    {
+      emoji: "🔋",
+      title: "Battery Storage",
+      desc: "Powerwall & battery backup solutions",
+      href: "#services",
+      accent: "green" as const,
+    },
+    {
+      emoji: "🏠",
+      title: "Solar Roofing",
+      desc: "Roof repairs, replacement & preparation for solar",
+      href: "#solar-roofing",
+      accent: "yellow" as const,
+    },
+  ];
+
+  return (
+    <section className="border-t border-border bg-card/20">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {cards.map((c) => (
+            <a
+              key={c.title}
+              href={c.href}
+              className={`group flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 transition hover:border-${c.accent === "yellow" ? "accent-yellow" : "accent-green"}/40 hover:ring-1 hover:ring-${c.accent === "yellow" ? "accent-yellow" : "accent-green"}/20 sm:rounded-3xl sm:p-6`}
+            >
+              <span className="text-3xl sm:text-4xl">{c.emoji}</span>
+              <div>
+                <h3 className={`font-display text-base font-bold sm:text-lg ${c.accent === "yellow" ? "text-accent-yellow" : "text-accent-green"}`}>
+                  {c.title}
+                </h3>
+                <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{c.desc}</p>
+              </div>
+              <span className={`mt-auto inline-flex items-center gap-1 text-xs font-semibold ${c.accent === "yellow" ? "text-accent-yellow" : "text-accent-green"} group-hover:gap-2 transition-all`}>
+                Learn More <ChevronRight className="h-3.5 w-3.5" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── EV SECTION ──────────────────────────────────────────────────────────── */
 // Use first 3 portfolio images as EV feature photos
 const evPhotos = [w1, w2, w3];
@@ -242,14 +309,13 @@ function EVSection() {
       {/* Header */}
       <div className="flex flex-col items-center text-center">
         <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
-          <PlugZap className="h-3.5 w-3.5" /> Our Specialty
+          <PlugZap className="h-3.5 w-3.5" /> EV Charger Installation
         </span>
         <h2 className="font-display text-3xl font-black sm:text-4xl md:text-5xl">
           EV Charger Installation
         </h2>
         <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
-          We specialize in home EV charger installs — the kind that charge your car overnight,
-          not over two days. Tesla-certified and Baytown-based, we've done hundreds of installs across the greater Houston area.
+          Tesla-certified and Baytown-based, we install home EV chargers the right way — permitted, inspected, and built to last. We've completed hundreds of installs across the greater Houston area.
         </p>
       </div>
 
@@ -348,17 +414,139 @@ function EVPricingCTA() {
   );
 }
 
+/* ─── GENERATOR SECTION ───────────────────────────────────────────────────── */
+function GeneratorSection() {
+  return (
+    <section id="electrical" className="border-t border-border">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+          {/* Photo */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl aspect-[4/3]">
+            <img
+              src={generatorImg}
+              alt="Generac whole-home standby generator installation"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                <Zap className="h-3.5 w-3.5 text-accent-yellow" /> Generac Whole-Home Generator
+              </span>
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="space-y-5">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
+                <Zap className="h-3.5 w-3.5" /> Electrical Services
+              </span>
+              <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl">
+                Whole-Home Generator<br /><span className="text-accent-yellow">Installation</span>
+              </h2>
+            </div>
+            <p className="text-base leading-relaxed text-foreground/90">
+              Never lose power again. We install residential standby generators — including Generac whole-home systems — that automatically turn on the moment your power goes out.
+            </p>
+            <ul className="space-y-2.5">
+              {[
+                "Residential standby & whole-home generators",
+                "Automatic transfer switch installation",
+                "Natural gas & propane connections",
+                "Fully permitted & code-compliant",
+                "Panel assessments included",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-yellow" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black transition hover:brightness-110"
+            >
+              Get a Free Generator Quote <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── SOLAR ROOFING SECTION ───────────────────────────────────────────────── */
+function SolarRoofingSection() {
+  const services = [
+    { icon: ShieldCheck, title: "Roof Inspections", desc: "Pre-solar assessments to ensure your roof is ready for installation." },
+    { icon: Wrench, title: "Roof Repairs", desc: "Address leaks, damaged shingles, or structural issues before solar goes on." },
+    { icon: HomeIcon, title: "Roof Replacement", desc: "Full replacement when needed — timed with your solar project to save cost." },
+    { icon: Sun, title: "Solar Preparation", desc: "Roof deck reinforcement, flashing, and penetration sealing for a clean install." },
+  ];
+
+  return (
+    <section id="solar-roofing" className="border-t border-border bg-card/20">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <div className="flex flex-col items-center text-center">
+          <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow">
+            <HomeIcon className="h-3.5 w-3.5" /> Solar Roofing
+          </span>
+          <h2 className="font-display text-3xl font-black sm:text-4xl md:text-5xl">
+            Roofing Solutions<br /><span className="text-accent-yellow">for Solar Projects</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
+            Roofing solutions for homeowners preparing for or installing solar. Roof inspections, repairs, replacement, and solar-related roofing work.
+          </p>
+          <p className="mt-2 max-w-xl text-xs text-muted-foreground">
+            We are not a general roofing company — our roofing services are specifically scoped to support solar installations and ensure your roof is solar-ready.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+          {services.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="rounded-2xl border border-border bg-card p-5 ring-1 ring-accent-yellow/10 transition hover:ring-accent-yellow/30"
+            >
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-yellow/15 text-accent-yellow">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-3 font-display text-base font-bold">{title}</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">{desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl border border-accent-yellow/20 bg-accent-yellow/5 p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <p className="font-display text-lg font-bold">Planning to go solar?</p>
+            <p className="mt-1 text-sm text-muted-foreground">We'll make sure your roof is ready before the panels go on.</p>
+          </div>
+          <a
+            href="#contact"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black transition hover:brightness-110"
+          >
+            <Phone className="h-4 w-4" /> Get a Roofing Assessment
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── SERVICES ────────────────────────────────────────────────────────────── */
 const renewableServices = [
-  { icon: Battery, name: "Battery Backup", desc: "Whole-home power resilience with Tesla Powerwall, EG4 & Span smart panels." },
+  { icon: Battery, name: "Battery Storage", desc: "Whole-home power resilience with Tesla Powerwall, EG4 & Span smart panels." },
   { icon: Sun, name: "Solar", desc: "Grid-tied & off-grid solar systems. Enphase certified." },
 ];
 const generalServices = [
   { icon: Lightbulb, name: "Lighting", desc: "Indoor, outdoor & landscape lighting" },
   { icon: Plug, name: "Receptacles", desc: "New outlets, USB & GFCI" },
-  { icon: Zap, name: "Generator Outlets", desc: "Standby & portable generator inlets" },
+  { icon: Zap, name: "Generator Install", desc: "Whole-home standby generators" },
   { icon: Fan, name: "Ceiling Fans", desc: "Install & replacement" },
   { icon: Tv, name: "TV Mounting", desc: "Concealed wiring & mount" },
+  { icon: PlugZap, name: "EV Chargers", desc: "Level 2 & Tesla Wall Connector" },
 ];
 
 function Services() {
@@ -876,7 +1064,7 @@ function FinancingBanner() {
           </h2>
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            {["EV Chargers", "Panel Upgrades", "Service Upgrades", "Backup Power Systems"].map((item) => (
+            {["EV Chargers", "Solar Systems", "Generators", "Battery Storage", "Panel Upgrades"].map((item) => (
               <span
                 key={item}
                 className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-semibold text-foreground sm:text-sm"
@@ -943,12 +1131,14 @@ function Contact() {
                 <Field label="Service needed">
                   <select required className={inputCls} defaultValue="">
                     <option value="" disabled>Select a service…</option>
+                    <option>Electrical Service / Panel Upgrade</option>
                     <option>EV Charger Install</option>
-                    <option>Battery Backup</option>
-                    <option>Solar</option>
+                    <option>Solar Installation</option>
+                    <option>Battery Backup / Powerwall</option>
+                    <option>Whole-Home Generator</option>
+                    <option>Solar Roofing / Roof Inspection</option>
                     <option>Lighting</option>
                     <option>Receptacles / Outlets</option>
-                    <option>Generator Outlet</option>
                     <option>Ceiling Fan</option>
                     <option>TV Mounting</option>
                     <option>Other</option>
