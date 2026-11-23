@@ -1,10 +1,11 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
-import { P as Phone, a as PlugZap, A as ArrowRight, S as ShieldCheck, Z as Zap, W as Wrench, B as Battery, b as Sun, C as ChevronRight, L as Lightbulb, c as Plug, F as Fan, T as Tv, d as ChevronLeft, X, e as Clock, U as Users, f as Award, H as Heart, g as Star, Q as Quote, M as MapPinned, h as Mail, i as MapPin, j as CircleCheck } from "../_libs/lucide-react.mjs";
+import { P as Phone, Z as Zap, A as ArrowRight, S as ShieldCheck, C as ChevronRight, a as PlugZap, W as Wrench, b as CircleCheck, H as House, c as Sun, B as Battery, L as Lightbulb, d as Plug, F as Fan, T as Tv, e as ChevronLeft, X, f as Clock, U as Users, g as Award, h as Heart, i as Star, Q as Quote, M as MapPinned, j as Mail, k as MapPin } from "../_libs/lucide-react.mjs";
 const logo = "/assets/logo-aHZpHL0g.png";
 const heroEv = "/assets/hero-ev-Da36mqbP.jpg";
 const solarImg = "/assets/solar-VqQWAgbl.jpg";
 const batteryImg = "/assets/battery-DHIgjDD6.jpg";
 const aboutUsImg = "/assets/about-uss-CzqVUXJB.png";
+const generatorImg = "/assets/generator-install-C9mAWIXa.jpg";
 const w1 = "/assets/work-1-DoPI9jRo.jpeg";
 const w2 = "/assets/work-2-DWwQXvlP.jpeg";
 const w3 = "/assets/work-3-CFWwwHQL.jpeg";
@@ -39,8 +40,11 @@ function Home() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(TrustBar, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(HomepageServiceCards, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(EVSection, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(EVPricingCTA, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(GeneratorSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SolarRoofingSection, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Services, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Portfolio, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Certifications, {}),
@@ -62,10 +66,13 @@ function Nav() {
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#ev-chargers", className: "hover:text-accent-yellow transition-colors", children: "EV Chargers" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#services", className: "hover:text-foreground transition-colors", children: "Services" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#portfolio", className: "hover:text-foreground transition-colors", children: "Our Work" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#about", className: "hover:text-foreground transition-colors", children: "About" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#top", className: "hover:text-foreground transition-colors", children: "Home" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#electrical", className: "hover:text-accent-yellow transition-colors", children: "Electrical" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#services", className: "hover:text-foreground transition-colors", children: "Solar" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#services", className: "hover:text-foreground transition-colors", children: "Battery" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#ev-chargers", className: "hover:text-foreground transition-colors", children: "EV Chargers" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#solar-roofing", className: "hover:text-accent-yellow transition-colors", children: "Solar Roofing" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#contact", className: "hover:text-foreground transition-colors", children: "Contact" })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-2 text-sm font-semibold text-black transition hover:brightness-110", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4" }),
@@ -82,16 +89,16 @@ function Hero() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative mx-auto max-w-6xl px-4 pt-14 pb-20 sm:pt-28 sm:pb-32", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "mb-5 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(PlugZap, { className: "h-3.5 w-3.5" }),
-        " Houston's EV Charger Specialists"
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-3.5 w-3.5" }),
+        " Electrical & Renewable Services"
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logo, alt: "Electrical & Renewable Services Logo", className: "h-20 w-20 sm:h-28 sm:w-28", width: 112, height: 112 }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "mt-5 font-display text-3xl font-black leading-tight sm:text-5xl md:text-6xl lg:text-7xl", children: [
-        "EV Charger Installs",
+        "Power Your Home.",
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "Done Right." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "Protect Your Investment." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg", children: "Tesla-certified home charger installations in the greater Houston area. Also serving battery backup, solar & general electrical needs." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 max-w-2xl text-sm text-muted-foreground sm:text-lg", children: "Residential electrical, solar, battery storage, EV chargers, and solar roofing solutions." }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `tel:${PHONE_TEL}`, className: "inline-flex items-center justify-center gap-2 rounded-full bg-accent-yellow px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-accent-yellow/25 transition hover:brightness-110 sm:px-8 sm:py-4 sm:text-base", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4 sm:h-5 sm:w-5" }),
@@ -99,7 +106,7 @@ function Hero() {
           PHONE_DISPLAY
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#contact", className: "inline-flex items-center justify-center gap-2 rounded-full border border-accent-green/40 bg-accent-green/10 px-6 py-3.5 text-sm font-bold text-accent-green transition hover:bg-accent-green/20 sm:px-8 sm:py-4 sm:text-base", children: [
-          "Free Quote ",
+          "Get a Free Estimate ",
           /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4 sm:h-5 sm:w-5" })
         ] })
       ] }),
@@ -157,6 +164,44 @@ function TrustBar() {
     ] })
   ] }) }) });
 }
+function HomepageServiceCards() {
+  const cards = [{
+    emoji: "⚡",
+    title: "Electrical",
+    desc: "Panel upgrades, generators & electrical services",
+    href: "#electrical",
+    accent: "yellow"
+  }, {
+    emoji: "☀️",
+    title: "Solar",
+    desc: "Solar panel systems designed for your home",
+    href: "#services",
+    accent: "green"
+  }, {
+    emoji: "🔋",
+    title: "Battery Storage",
+    desc: "Powerwall & battery backup solutions",
+    href: "#services",
+    accent: "green"
+  }, {
+    emoji: "🏠",
+    title: "Solar Roofing",
+    desc: "Roof repairs, replacement & preparation for solar",
+    href: "#solar-roofing",
+    accent: "yellow"
+  }];
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "border-t border-border bg-card/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-6xl px-4 py-10 sm:py-14", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4", children: cards.map((c) => /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: c.href, className: `group flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 transition hover:border-${c.accent === "yellow" ? "accent-yellow" : "accent-green"}/40 hover:ring-1 hover:ring-${c.accent === "yellow" ? "accent-yellow" : "accent-green"}/20 sm:rounded-3xl sm:p-6`, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-3xl sm:text-4xl", children: c.emoji }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: `font-display text-base font-bold sm:text-lg ${c.accent === "yellow" ? "text-accent-yellow" : "text-accent-green"}`, children: c.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-xs text-muted-foreground sm:text-sm", children: c.desc })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: `mt-auto inline-flex items-center gap-1 text-xs font-semibold ${c.accent === "yellow" ? "text-accent-yellow" : "text-accent-green"} group-hover:gap-2 transition-all`, children: [
+      "Learn More ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-3.5 w-3.5" })
+    ] })
+  ] }, c.title)) }) }) });
+}
 const evPhotos = [w1, w2, w3];
 const evFeatures = [{
   icon: ShieldCheck,
@@ -180,10 +225,10 @@ function EVSection() {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(PlugZap, { className: "h-3.5 w-3.5" }),
-        " Our Specialty"
+        " EV Charger Installation"
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl font-black sm:text-4xl md:text-5xl", children: "EV Charger Installation" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base", children: "We specialize in home EV charger installs — the kind that charge your car overnight, not over two days. Tesla-certified and Baytown-based, we've done hundreds of installs across the greater Houston area." })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base", children: "Tesla-certified and Baytown-based, we install home EV chargers the right way — permitted, inspected, and built to last. We've completed hundreds of installs across the greater Houston area." })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-10 grid grid-cols-3 gap-2 sm:gap-4", children: evPhotos.map((src, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden rounded-xl sm:rounded-2xl aspect-[4/3]", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src, alt: `EV charger install ${i + 1}`, loading: "lazy", className: "h-full w-full object-cover transition duration-500 hover:scale-105" }),
@@ -233,9 +278,96 @@ function EVPricingCTA() {
     ] })
   ] });
 }
+function GeneratorSection() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "electrical", className: "border-t border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-6xl px-4 py-16 sm:py-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid gap-10 lg:grid-cols-2 lg:gap-16 items-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden rounded-2xl sm:rounded-3xl aspect-[4/3]", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: generatorImg, alt: "Generac whole-home standby generator installation", className: "h-full w-full object-cover", loading: "lazy" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-4 left-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-3.5 w-3.5 text-accent-yellow" }),
+        " Generac Whole-Home Generator"
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-5", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-3.5 w-3.5" }),
+          " Electrical Services"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "mt-3 font-display text-3xl font-black sm:text-4xl", children: [
+          "Whole-Home Generator",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "Installation" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-base leading-relaxed text-foreground/90", children: "Never lose power again. We install residential standby generators — including Generac whole-home systems — that automatically turn on the moment your power goes out." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2.5", children: ["Residential standby & whole-home generators", "Automatic transfer switch installation", "Natural gas & propane connections", "Fully permitted & code-compliant", "Panel assessments included"].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2.5 text-sm text-muted-foreground", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "mt-0.5 h-4 w-4 shrink-0 text-accent-yellow" }),
+        item
+      ] }, item)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#contact", className: "inline-flex items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black transition hover:brightness-110", children: [
+        "Get a Free Generator Quote ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4" })
+      ] })
+    ] })
+  ] }) }) });
+}
+function SolarRoofingSection() {
+  const services = [{
+    icon: ShieldCheck,
+    title: "Roof Inspections",
+    desc: "Pre-solar assessments to ensure your roof is ready for installation."
+  }, {
+    icon: Wrench,
+    title: "Roof Repairs",
+    desc: "Address leaks, damaged shingles, or structural issues before solar goes on."
+  }, {
+    icon: House,
+    title: "Roof Replacement",
+    desc: "Full replacement when needed — timed with your solar project to save cost."
+  }, {
+    icon: Sun,
+    title: "Solar Preparation",
+    desc: "Roof deck reinforcement, flashing, and penetration sealing for a clean install."
+  }];
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "solar-roofing", className: "border-t border-border bg-card/20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-6xl px-4 py-16 sm:py-24", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent-yellow/40 bg-accent-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-yellow", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(House, { className: "h-3.5 w-3.5" }),
+        " Solar Roofing"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-3xl font-black sm:text-4xl md:text-5xl", children: [
+        "Roofing Solutions",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "for Solar Projects" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base", children: "Roofing solutions for homeowners preparing for or installing solar. Roof inspections, repairs, replacement, and solar-related roofing work." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 max-w-xl text-xs text-muted-foreground", children: "We are not a general roofing company — our roofing services are specifically scoped to support solar installations and ensure your roof is solar-ready." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4", children: services.map(({
+      icon: Icon,
+      title,
+      desc
+    }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-2xl border border-border bg-card p-5 ring-1 ring-accent-yellow/10 transition hover:ring-accent-yellow/30", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid h-10 w-10 place-items-center rounded-xl bg-accent-yellow/15 text-accent-yellow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "h-5 w-5" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "mt-3 font-display text-base font-bold", children: title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1.5 text-sm text-muted-foreground", children: desc })
+    ] }, title)) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex flex-col items-center gap-3 rounded-2xl border border-accent-yellow/20 bg-accent-yellow/5 p-6 text-center sm:flex-row sm:justify-between sm:text-left", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-lg font-bold", children: "Planning to go solar?" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "We'll make sure your roof is ready before the panels go on." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#contact", className: "inline-flex shrink-0 items-center gap-2 rounded-full bg-accent-yellow px-6 py-3 text-sm font-bold text-black transition hover:brightness-110", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-4 w-4" }),
+        " Get a Roofing Assessment"
+      ] })
+    ] })
+  ] }) });
+}
 const renewableServices = [{
   icon: Battery,
-  name: "Battery Backup",
+  name: "Battery Storage",
   desc: "Whole-home power resilience with Tesla Powerwall, EG4 & Span smart panels."
 }, {
   icon: Sun,
@@ -252,8 +384,8 @@ const generalServices = [{
   desc: "New outlets, USB & GFCI"
 }, {
   icon: Zap,
-  name: "Generator Outlets",
-  desc: "Standby & portable generator inlets"
+  name: "Generator Install",
+  desc: "Whole-home standby generators"
 }, {
   icon: Fan,
   name: "Ceiling Fans",
@@ -262,6 +394,10 @@ const generalServices = [{
   icon: Tv,
   name: "TV Mounting",
   desc: "Concealed wiring & mount"
+}, {
+  icon: PlugZap,
+  name: "EV Chargers",
+  desc: "Level 2 & Tesla Wall Connector"
 }];
 function Services() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "services", className: "border-t border-border bg-card/20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-6xl px-4 py-16 sm:py-24", children: [
@@ -654,7 +790,7 @@ function FinancingBanner() {
       " ",
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-accent-yellow", children: "Qualified Customers" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3", children: ["EV Chargers", "Panel Upgrades", "Service Upgrades", "Backup Power Systems"].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-semibold text-foreground sm:text-sm", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3", children: ["EV Chargers", "Solar Systems", "Generators", "Battery Storage", "Panel Upgrades"].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs font-semibold text-foreground sm:text-sm", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-1.5 w-1.5 rounded-full bg-accent-yellow" }),
       item
     ] }, item)) }),
@@ -692,12 +828,14 @@ function Contact() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(Field, { label: "Phone", children: /* @__PURE__ */ jsxRuntimeExports.jsx("input", { required: true, type: "tel", className: inputCls, placeholder: "(555) 123-4567" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Field, { label: "Service needed", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { required: true, className: inputCls, defaultValue: "", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", disabled: true, children: "Select a service…" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Electrical Service / Panel Upgrade" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "EV Charger Install" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Battery Backup" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Solar" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Solar Installation" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Battery Backup / Powerwall" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Whole-Home Generator" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Solar Roofing / Roof Inspection" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Lighting" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Receptacles / Outlets" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Generator Outlet" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Ceiling Fan" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "TV Mounting" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Other" })
