@@ -860,6 +860,7 @@ function Certifications() {
             </div>
           ))}
         </div>
+
         {/* Contractor License */}
         <div className="mt-6 flex justify-center">
           <div className="inline-flex items-center gap-3 rounded-2xl border border-accent-yellow/30 bg-accent-yellow/5 px-5 py-3">
