@@ -171,7 +171,7 @@ function Hero() {
               href={`tel:${PHONE_TEL}`}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-yellow px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-accent-yellow/25 transition hover:brightness-110 sm:px-8 sm:py-4 sm:text-base"
             >
-              <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
+              <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call Us Now
             </a>
             <a
               href="#contact"
@@ -615,13 +615,12 @@ function Services() {
         {/* General electrical — compact list */}
         <div className="mt-6">
           <div className="rounded-2xl border border-border bg-card p-5 ring-1 ring-accent-yellow/10 sm:rounded-3xl sm:p-7">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center justify-center gap-3 mb-5">
               <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-yellow/15 text-accent-yellow">
                 <Zap className="h-5 w-5" />
               </div>
               <h3 className="font-display text-xl font-bold text-accent-yellow">General Electrical</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            </div>            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
               {generalServices.map(({ icon: Icon, name, desc }) => (
                 <div key={name} className="flex flex-col items-center gap-2 rounded-xl bg-muted/40 p-3 text-center transition hover:bg-muted/70">
                   <div className="grid h-9 w-9 place-items-center rounded-lg bg-background text-accent-yellow">
@@ -860,6 +859,16 @@ function Certifications() {
               <p className="text-[0.65rem] text-muted-foreground leading-relaxed sm:text-xs">{c.note}</p>
             </div>
           ))}
+        </div>
+        {/* Contractor License */}
+        <div className="mt-6 flex justify-center">
+          <div className="inline-flex items-center gap-3 rounded-2xl border border-accent-yellow/30 bg-accent-yellow/5 px-5 py-3">
+            <ShieldCheck className="h-5 w-5 shrink-0 text-accent-yellow" />
+            <div className="text-center">
+              <p className="text-xs font-bold text-foreground sm:text-sm">Texas Electrical Contractor</p>
+              <p className="text-[0.65rem] text-muted-foreground sm:text-xs">License: TECL #42056</p>
+            </div>
+          </div>
         </div>
         <p className="mt-5 text-center text-xs text-muted-foreground">
           Tesla, Span, Enphase, and EG4 are trademarks of their respective owners.
