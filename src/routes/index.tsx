@@ -15,6 +15,8 @@ import batteryImg from "@/assets/battery.jpg";
 import electricalImg from "@/assets/electrical.jpg";
 import aboutUsImg from "@/assets/about-uss.png";
 import generatorImg from "@/assets/generator-install.jpg";
+import roofing1 from "@/assets/roofing-1.jpg";
+import roofing2 from "@/assets/roofing-2.jpg";
 
 // Portfolio images
 import w1 from "@/assets/portfolio/work-1.jpeg";
@@ -498,9 +500,23 @@ function SolarRoofingSection() {
           <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
             Roofing solutions for homeowners preparing for or installing solar. Roof inspections, repairs, replacement, and solar-related roofing work.
           </p>
-          <p className="mt-2 max-w-xl text-xs text-muted-foreground">
-            We are not a general roofing company — our roofing services are specifically scoped to support solar installations and ensure your roof is solar-ready.
-          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
+          {[
+            { src: roofing1, alt: "Aerial roof inspection before solar installation" },
+            { src: roofing2, alt: "Roof deck preparation and underlayment for solar project" },
+          ].map(({ src, alt }) => (
+            <div key={alt} className="relative overflow-hidden rounded-2xl sm:rounded-3xl aspect-[4/3]">
+              <img
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-500 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            </div>
+          ))}
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
