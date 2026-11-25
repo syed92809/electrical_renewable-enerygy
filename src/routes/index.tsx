@@ -1119,69 +1119,63 @@ function FinancingBanner() {
 
 /* ─── CONTACT ─────────────────────────────────────────────────────────────── */
 function Contact() {
-  const [sent, setSent] = useState(false);
+  const [emailHref, setEmailHref] = useState(
+    `mailto:${EMAIL}?subject=Project%20Inquiry%20%E2%80%94%20Electrical%20%26%20Renewable%20Services`
+  );
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  React.useEffect(() => {
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (!isMobile) {
+      setIsDesktop(true);
+      const subject = encodeURIComponent("Project Inquiry — Electrical & Renewable Services");
+      setEmailHref(`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${subject}`);
+    }
+  }, []);
+
   return (
     <section id="contact" className="border-t border-border py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeader eyebrow="Get in touch" title="Request a Free Quote" />
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          {/* Contact info */}
+
+        <div className="mx-auto mt-10 max-w-xl">
+          {/* Contact info cards */}
           <div className="space-y-4">
             <ContactRow icon={Phone} label="Call us" value={PHONE_DISPLAY} href={`tel:${PHONE_TEL}`} accent="yellow" />
-            <ContactRow icon={Mail} label="Email" value={EMAIL} href={`mailto:${EMAIL}`} accent="green" />
+            <ContactRow
+              icon={Mail}
+              label="Email"
+              value={EMAIL}
+              href={emailHref}
+              target={isDesktop ? "_blank" : undefined}
+              rel={isDesktop ? "noopener noreferrer" : undefined}
+              accent="green"
+            />
             <ContactRow icon={MapPin} label="Service area" value={ADDRESS} accent="yellow" />
+          </div>
+
+          {/* Action buttons */}
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`tel:${PHONE_TEL}`}
-              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-yellow px-6 py-4 text-sm font-bold text-black transition hover:brightness-110 sm:w-auto sm:rounded-2xl sm:text-base"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent-yellow px-6 py-4 text-sm font-bold text-black transition hover:brightness-110 sm:w-auto sm:flex-1 sm:rounded-2xl sm:text-base"
             >
               <Phone className="h-5 w-5" /> Call us now
             </a>
-            <p className="text-xs text-muted-foreground pt-1">Most installs quoted within 24 hours. Same-day calls welcome.</p>
+
+            <a
+              href={emailHref}
+              target={isDesktop ? "_blank" : undefined}
+              rel={isDesktop ? "noopener noreferrer" : undefined}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-accent-green/40 bg-accent-green/10 px-6 py-4 text-sm font-bold text-accent-green transition hover:bg-accent-green/20 sm:w-auto sm:flex-1 sm:rounded-2xl sm:text-base"
+            >
+              <Mail className="h-5 w-5" /> Email us
+            </a>
           </div>
 
-          {/* Form */}
-          <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="rounded-2xl border border-border bg-card p-5 sm:rounded-3xl sm:p-8"
-          >
-            {sent ? (
-              <div className="flex flex-col items-center gap-3 py-10 text-center">
-                <CheckCircle2 className="h-12 w-12 text-accent-green" />
-                <h3 className="font-display text-2xl font-bold">Thanks!</h3>
-                <p className="text-sm text-muted-foreground">Christian will be in touch within one business day.</p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <Field label="Name"><input required type="text" className={inputCls} placeholder="Jane Smith" /></Field>
-                <Field label="Phone"><input required type="tel" className={inputCls} placeholder="(555) 123-4567" /></Field>
-                <Field label="Service needed">
-                  <select required className={inputCls} defaultValue="">
-                    <option value="" disabled>Select a service…</option>
-                    <option>Electrical Service / Panel Upgrade</option>
-                    <option>EV Charger Install</option>
-                    <option>Solar Installation</option>
-                    <option>Battery Backup / Powerwall</option>
-                    <option>Whole-Home Generator</option>
-                    <option>Solar Roofing / Roof Inspection</option>
-                    <option>Lighting</option>
-                    <option>Receptacles / Outlets</option>
-                    <option>Ceiling Fan</option>
-                    <option>TV Mounting</option>
-                    <option>Other</option>
-                  </select>
-                </Field>
-                <Field label="Message (optional)">
-                  <textarea rows={3} className={inputCls} placeholder="Tell us about your project…" />
-                </Field>
-                <button
-                  type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-green px-6 py-3.5 text-sm font-bold text-black transition hover:brightness-110 sm:text-base"
-                >
-                  Send Request <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            )}
-          </form>
+          <p className="mt-4 text-center text-xs text-muted-foreground">
+            Most installs quoted within 24 hours. Same-day calls welcome.
+          </p>
         </div>
       </div>
     </section>
@@ -1225,13 +1219,13 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 function ContactRow({
-  icon: Icon, label, value, href, accent,
-}: { icon: React.ElementType; label: string; value: string; href?: string; accent: "yellow" | "green" }) {
+  icon: Icon, label, value, href, accent, target, rel,
+}: { icon: React.ElementType; label: string; value: string; href ?: string; accent: "yellow" | "green"; target ?: string; rel ?: string }) {
   const color = accent === "yellow" ? "text-accent-yellow" : "text-accent-green";
   const Wrap = href ? "a" : "div";
   return (
     <Wrap
-      {...(href ? { href } : {})}
+      {...(href ? { href, target, rel } : {})}
       className="flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-card p-4 transition hover:border-border/80 sm:gap-4 sm:rounded-2xl"
     >
       <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-muted sm:h-12 sm:w-12 ${color}`}>
